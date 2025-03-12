@@ -14,6 +14,7 @@ import Stack from '@mui/material/Stack';
 import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import GoogleIcon from '@mui/icons-material/Google';
+import { useNavigate } from 'react-router-dom';
 // import Card from '@mui/material/Card';
 // import ForgotPassword from './components/ForgotPassword';
 // import AppTheme from '../shared-theme/AppTheme';
@@ -69,6 +70,8 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
     const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
     const [open, setOpen] = React.useState(false);
 
+    const navigate = useNavigate()
+
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -90,6 +93,8 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
     };
 
     const validateInputs = () => {
+        navigate('/dashboard');
+
         const email = document.getElementById('email') as HTMLInputElement;
         const password = document.getElementById('password') as HTMLInputElement;
 
@@ -178,11 +183,6 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                                 color={passwordError ? 'error' : 'primary'}
                             />
                         </FormControl>
-                        {/* <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me"
-                        /> */}
-                        {/* <ForgotPassword open={open} handleClose={handleClose} /> */}
                         <Button
                             type="submit"
                             fullWidth
@@ -203,28 +203,11 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                             Forgot your password?
                         </Link>
                     </Box>
-                    {/* <Divider>or</Divider> */}
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                        {/* <Button
-                            fullWidth
-                            variant="outlined"
-                            onClick={() => alert('Sign in with Google')}
-                            startIcon={<GoogleIcon />}
-                        >
-                            Sign in with Google
-                        </Button> */}
-                        {/* <Button
-                            fullWidth
-                            variant="outlined"
-                            onClick={() => alert('Sign in with Facebook')}
-                        //   startIcon={<FacebookIcon />}
-                        >
-                            Sign in with Facebook
-                        </Button> */}
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>     
                         <Typography sx={{ textAlign: 'center' }}>
                             Don&apos;t have an account?{' '}
                             <Link
-                                href="/material-ui/getting-started/templates/sign-in/"
+                                href="/signup"
                                 variant="body2"
                                 sx={{ alignSelf: 'center' }}
                             >
