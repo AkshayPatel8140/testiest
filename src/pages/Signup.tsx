@@ -121,7 +121,9 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
           <Typography
             component="h1"
             variant="h4"
-            sx={{ width: "100%", fontSize: "clamp(2rem, 10vw, 2.15rem)" }}
+            alignSelf={'center'}
+            sx={{ fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
+
           >
             Sign up
           </Typography>
@@ -148,9 +150,9 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                 <TextField
                   error={emailError}
                   helperText={emailErrorMessage}
-                  id="email"
-                  type="email"
-                  name="email"
+                  id="firstname"
+                  type='text'
+                  name="firstname"
                   placeholder="firstname"
                   autoFocus
                   required
@@ -166,9 +168,10 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                 <TextField
                   error={emailError}
                   helperText={emailErrorMessage}
-                  id="email"
-                  type="email"
-                  name="email"
+                  id="lastname"
+                  type="text"
+                  name="lastname"
+                  placeholder="lastname"
                   autoFocus
                   required
                   fullWidth
@@ -183,11 +186,11 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                 <TextField
                   error={emailError}
                   helperText={emailErrorMessage}
-                  id="email"
-                  type="email"
-                  name="email"
+                  id="username"
+                  type="text"
+                  name="username"
                   placeholder="your@email.com"
-                  autoComplete="email"
+                  // autoComplete="email"
                   autoFocus
                   required
                   fullWidth
@@ -212,7 +215,7 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   id="email"
                   type="email"
                   name="email"
-                  placeholder="firstname"
+                  placeholder="email"
                   autoFocus
                   required
                   fullWidth
@@ -230,7 +233,7 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   id="email"
                   type="email"
                   name="email"
-                  placeholder="firstname"
+                  placeholder="your@email.com"
                   autoFocus
                   required
                   fullWidth
@@ -292,7 +295,7 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                 <TextField
                   error={passwordError}
                   helperText={passwordErrorMessage}
-                  name="password"
+                  name="CoPassword"
                   placeholder="••••••"
                   type="password"
                   id="password"
@@ -317,7 +320,6 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                 Sign in
               </Button>
             </Box>
-             
           </Box>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <Typography sx={{ textAlign: "center" }}>

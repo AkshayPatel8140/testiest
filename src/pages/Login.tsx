@@ -132,7 +132,8 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                     <Typography
                         component="h1"
                         variant="h4"
-                        sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
+                        alignSelf={'center'}
+                        sx={{ fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
                     >
                         Sign in
                     </Typography>
@@ -203,7 +204,7 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                             Forgot your password?
                         </Link>
                     </Box>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>     
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         <Typography sx={{ textAlign: 'center' }}>
                             Don&apos;t have an account?{' '}
                             <Link
