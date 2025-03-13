@@ -20,6 +20,10 @@ import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import CheckIcon from '@mui/icons-material/Check';
 import { Colors } from "../components/Colors.tsx";
+import CourseTable from "../components/CourseTable.tsx";
+import Certificates from "../components/Certificates.tsx";
+import Universities from "../components/Universities.tsx";
+import Books from "../components/Books.tsx";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -38,7 +42,7 @@ function TabPanel(props: TabPanelProps) {
             aria-labelledby={`vertical-tab-${index}`}
             {...other}
         >
-            {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+            {value === index && <Box sx={{ pt: 3 }}>{children}</Box>}
         </div>
     );
 }
@@ -60,6 +64,7 @@ const CustomButton = styled(IconButton)({
 const CustomTabs = styled(Tabs)({
     backgroundColor: "#F5F5F5",
     borderRadius: "50px",
+    height: '32px',
     padding: "4px",
     boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
     minHeight: "auto",
@@ -132,7 +137,7 @@ export const DashboardContent = () => {
         <div>
             <Grid container spacing={2}>
                 <Grid size={3}>
-                    <Box display={"flex"} flexDirection={"column"} height={'100%'}>
+                    <Box display={"flex"} flexDirection={"column"} height={'100%'} sx={{height: '100vh'}}>
                         <Card variant="outlined" sx={{ maxWidth: 360, borderRadius: 2, boxShadow: 10 }}>
                             <Box sx={{ px: 2, pt: 1, pr: 2, pb: 1 }}>
                                 <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -297,38 +302,24 @@ export const DashboardContent = () => {
                             </CustomTabs>
                         </Box>
                         <Box>
-                            <Tabs
-                                value={tabValue}
-                                onChange={handleChange}
-                                variant="scrollable"
-                                scrollButtons={false}
-                                aria-label="scrollable prevent tabs example"
-                            >
-                                <Tab label="Course" />
-                                <Tab label="Books" />
-                                <Tab label="Certificates" />
-                                <Tab label="Universities" />
-                            </Tabs>
-                        </Box>
-                        <Box>
                             <TabPanel value={tabValue} index={0}>
                                 <Card variant="outlined">
-                                    <CardContent>Course</CardContent>
+                                    <CourseTable />
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={1}>
                                 <Card variant="outlined">
-                                    <CardContent>Books</CardContent>
+                                   <Books />
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={2}>
                                 <Card variant="outlined">
-                                    <CardContent>Certificates</CardContent>
+                                   <Certificates />
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={3}>
                                 <Card variant="outlined">
-                                    <CardContent>Universities</CardContent>
+                                   <Universities />
                                 </Card>
                             </TabPanel>
                         </Box>
