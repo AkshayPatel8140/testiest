@@ -1,11 +1,13 @@
 import {
     Box,
+    Button,
     Card,
     CardContent,
     Chip,
     Container,
     Divider,
     Grid2 as Grid,
+    IconButton,
     Slider,
     Stack,
     styled,
@@ -14,7 +16,10 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import AddIcon from "@mui/icons-material/Add";
+import CheckIcon from '@mui/icons-material/Check';
+import { Colors } from "../components/Colors.tsx";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -37,6 +42,20 @@ function TabPanel(props: TabPanelProps) {
         </div>
     );
 }
+const CustomButton = styled(IconButton)({
+    backgroundColor: Colors.defaultBlue, // Blue color
+    color: "#fff",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+    borderRadius: "50%", // Circular button
+    width: "30px",
+    height: "30px",
+    marginLeft: "8px", // Space between input and button
+    transition: "all 0.3s ease",
+    "&:hover": {
+        backgroundColor: "#1565c0", // Slightly darker on hover
+        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
+    },
+});
 
 const CustomTabs = styled(Tabs)({
     backgroundColor: "#F5F5F5",
@@ -69,12 +88,45 @@ const CustomTab = styled(Tab)({
     },
 });
 
+
 export const DashboardContent = () => {
     const [tabValue, setTabValue] = React.useState(0);
+    const [timeLimit, setTimeLimit] = React.useState(2);
+    const [education, setEducation] = useState<string>("");
+    const [yourSkillText, setYourSkillText] = useState<string>("");
+    const [skillList, setSkillList] = useState<string[]>(['Soft', 'Soft']);
+    const [interestedSkillText, setInterestedSkillText] = useState<string>("");
+    const [interestedSkill, setInterestedSkillList] = useState<string[]>(['Soft', 'Soft']);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setTabValue(newValue);
     };
+
+    const onChangeTimeLimit = (data: any) => {
+        setTimeLimit(data?.target?.value)
+    }
+
+    const handleAddSkill = () => {
+        if (yourSkillText.trim()) {
+            setSkillList([...skillList, yourSkillText.trim()]);
+            setYourSkillText(""); // Clear input after adding
+        }
+    };
+    const handleAddInterestedSkill = () => {
+        if (interestedSkillText.trim()) {
+            setInterestedSkillList([...interestedSkill, interestedSkillText.trim()]);
+            setInterestedSkillText(""); // Clear input after adding
+        }
+    };
+
+    const onSearch = () => {
+        let data = {
+            education: education,
+            userSkills: skillList,
+            interestedSkill: interestedSkill,
+            timeLimit: timeLimit
+        }
+    }
 
     return (
         <div>
@@ -102,6 +154,8 @@ export const DashboardContent = () => {
                                         fullWidth
                                         multiline
                                         rows={2}
+                                        value={education}
+                                        onChange={(e) => { setEducation(e?.target?.value) }}
                                         slotProps={{
                                             input: {
                                                 sx: {
@@ -122,10 +176,12 @@ export const DashboardContent = () => {
                                         Your skills
                                     </Typography>
                                 </Box>
-                                <Box>
+                                <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
                                     <TextField
                                         id="outlined-basic"
                                         fullWidth
+                                        value={yourSkillText}
+                                        onChange={(e) => setYourSkillText(e.target.value)}
                                         slotProps={{
                                             input: {
                                                 sx: {
@@ -138,12 +194,16 @@ export const DashboardContent = () => {
                                             },
                                         }}
                                     />
+                                    <CustomButton onClick={handleAddSkill}>
+                                        <CheckIcon />
+                                    </CustomButton>
                                 </Box>
 
                                 <Box pt={2}>
                                     <Stack direction="row" spacing={1}>
-                                        <Chip color="primary" label="Soft" size="small" onDelete={() => { }} />
-                                        <Chip color="primary" label="Soft" size="small" onDelete={() => { }} />
+                                        {skillList.map((item, index) => {
+                                            return <Chip color="primary" label={item} size="small" onDelete={() => { }} />
+                                        })}
                                     </Stack>
                                 </Box>
                             </Box>
@@ -154,10 +214,12 @@ export const DashboardContent = () => {
                                         Interested skills
                                     </Typography>
                                 </Box>
-                                <Box>
+                                <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
                                     <TextField
                                         id="outlined-basic"
                                         fullWidth
+                                        value={interestedSkillText}
+                                        onChange={(e) => setInterestedSkillText(e.target.value)}
                                         slotProps={{
                                             input: {
                                                 sx: {
@@ -170,13 +232,16 @@ export const DashboardContent = () => {
                                             },
                                         }}
                                     />
+                                    <CustomButton onClick={handleAddInterestedSkill}>
+                                        <CheckIcon />
+                                    </CustomButton>
                                 </Box>
                                 <Box pt={2}>
 
                                     <Stack direction="row" flexWrap={'wrap'} spacing={1} rowGap={1}>
-                                        <Chip color="primary" label="Soft" size="small" onDelete={() => { }} />
-                                        <Chip color="primary" label="Soft" size="small" onDelete={() => { }} />
-                                        <Chip color="primary" label="Soft" size="small" onDelete={() => { }} />
+                                        {interestedSkill.map((item, index) => {
+                                            return <Chip color="primary" label={item} size="small" onDelete={() => { }} />
+                                        })}
                                     </Stack>
                                 </Box>
                             </Box>
@@ -188,21 +253,34 @@ export const DashboardContent = () => {
                                     </Typography>
                                     <Box>
                                         <Typography variant="body2" component="div">
-                                            2 Years
+                                            {timeLimit} Months
                                         </Typography>
                                     </Box>
                                 </Box>
                                 <Box>
                                     <Slider
                                         aria-label="Temperature"
-                                        defaultValue={6}
+                                        defaultValue={2}
                                         valueLabelDisplay="auto"
                                         shiftStep={30}
                                         step={2}
                                         marks
                                         min={2}
                                         max={24}
+                                        onChange={onChangeTimeLimit}
                                     />
+                                </Box>
+                                <Box marginY={2}>
+                                    <Button
+                                        type="submit"
+                                        fullWidth
+                                        variant="contained"
+                                        size="large"
+                                        sx={{ backgroundColor: '#0A4EB2' }}
+                                        onClick={onSearch}
+                                    >
+                                        Search
+                                    </Button>
                                 </Box>
                             </Box>
                         </Card>
