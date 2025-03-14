@@ -80,12 +80,12 @@ export default function Universities() {
           </Box>
 
           {/* Right: University Logo */}
-          <ListItemAvatar>
+          <ListItemAvatar sx={{ minWidth: 0 }}>
             <Avatar
               src={uni.image}
               sx={{
-                width: 60,
-                height: 60,
+                width: 40,
+                height: 40,
                 background: avatarStyle(index),
                 boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.2)',
               }}
