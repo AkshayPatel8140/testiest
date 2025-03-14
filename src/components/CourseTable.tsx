@@ -1,13 +1,14 @@
-import * as React from 'react';
+import { Box, Button, Modal, Typography } from '@mui/material';
+import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Box, Button, Modal, Typography } from '@mui/material';
+import * as React from 'react';
+
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -20,49 +21,65 @@ const style = {
     p: 4,
 };
 
+
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
-    },
-    [`&.${tableCellClasses.body}`]: {
-        fontSize: 14,
+    fontSize: 16,
+    fontWeight: 500,
+    padding: '12px 16px',
+    borderBottom: 'none',
+    whiteSpace: 'nowrap', // Prevent text wrapping
+    '&:last-child': {
+        textAlign: 'right',
     },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
+    '&:nth-of-type(even)': {
+        backgroundColor: '#3f6fbf', // Blue background for even rows
+        color: 'white',
+        '& *': { color: 'white' }, // Ensure all text remains white
     },
-    // hide last border
-    '&:last-child td, &:last-child th': {
-        border: 0,
+    '&:nth-of-type(odd)': {
+        backgroundColor: 'white',
     },
 }));
 
-function createData(
-    name: string,
-    viewdetails: string,
-    duration: string,
-) {
-    return { name, viewdetails, duration, };
+function createData(name: string, duration: string) {
+    return { name, duration };
 }
 
+
 const rows = [
-    createData('1.Frozen yoghurt', 'view details', '6 month'),
-    createData('1.Frozen yoghurt', 'view details', '6 month'),
-    createData('1.Frozen yoghurt', 'view details', '6 month'),
-    createData('1.Frozen yoghurt', 'view details', '6 month'),
-    createData('1.Frozen yoghurt', 'view details', '6 month'),
-    createData('1.Frozen yoghurt', 'view details', '6 month'),
-    createData('1.Frozen yoghurt', 'view details', '6 month'),
+    createData('Quantum Computing', '6 Month'),
+    createData('Introduction to Artificial Intelligence', '6 Month'),
+    createData('Introduction to Algorithms', '6 Month'),
+    createData('Introduction to Machine Learning', '6 Month'),
+    createData('Introduction to Blockchain', '6 Month'),
+    createData('Machine Learning and AI', '6 Month'),
+    createData('Advance Web Technology', '6 Month'),
+    createData('Prompt Engineering', '6 Month'),
+    createData('Cloud Computing', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
+    createData('Advance Python Application Programming', '6 Month'),
 ];
 
 
 export default function CourseTable() {
 
     const [isModalOpen, setIsModalOpen] = React.useState(false)
-    const [selectedCourse, setSelectedCourse] = React.useState(null);
+    const [selectedCourse, setSelectedCourse] = React.useState<any>(null);
     const handleViewDetails = (row) => {
         setSelectedCourse(row);
         setIsModalOpen(true);
@@ -95,18 +112,30 @@ export default function CourseTable() {
                     }
                 </Box>
             </Modal>
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="customized table">
+            <TableContainer
+                component={Paper}
+                sx={{
+                    boxShadow: 3,
+                    borderRadius: 2,
+                    height: 'calc(100vh - 200px)',  // Ensures vertical scroll if content overflows
+                    overflowY: 'auto' // Enables vertical scrolling
+                }}
+            >
+                <Table sx={{ minWidth: 700 }}>
                     <TableBody>
-                        {rows.map((row) => (
-                            <StyledTableRow key={row.name}>
-                                <StyledTableCell component="th" scope="row">
-                                    {row.name}
+                        {rows.map((row, index) => (
+                            <StyledTableRow key={index}>
+                                <StyledTableCell>
+                                    {index + 1}. {row.name}
                                 </StyledTableCell>
-                                <StyledTableCell align="right">
-                                    <Button variant="text" sx={{ textTransform: 'none' }} onClick={() => handleViewDetails(row)}>  {row.viewdetails}</Button>
+                                <StyledTableCell>
+                                    <Button variant="text" sx={{ textTransform: 'none', color: 'inherit' }} onClick={() => handleViewDetails(row)}>
+                                        View Details
+                                    </Button>
                                 </StyledTableCell>
-                                <StyledTableCell align="right">{row.duration}</StyledTableCell>
+                                <StyledTableCell>
+                                    {row.duration}
+                                </StyledTableCell>
                             </StyledTableRow>
                         ))}
                     </TableBody>
