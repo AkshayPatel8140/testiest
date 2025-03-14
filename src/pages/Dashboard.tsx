@@ -2,7 +2,6 @@ import {
     Box,
     Button,
     Card,
-    CardContent,
     Chip,
     Container,
     Divider,
@@ -17,7 +16,6 @@ import {
     Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
 import CheckIcon from '@mui/icons-material/Check';
 import { Colors } from "../components/Colors.tsx";
 import CourseTable from "../components/CourseTable.tsx";
@@ -131,13 +129,14 @@ export const DashboardContent = () => {
             interestedSkill: interestedSkill,
             timeLimit: timeLimit
         }
+        console.log('data', data)
     }
 
     return (
         <div>
             <Grid container spacing={2}>
                 <Grid size={3}>
-                    <Box display={"flex"} flexDirection={"column"} height={'100%'} sx={{height: '100vh'}}>
+                    <Box display={"flex"} flexDirection={"column"} height={'100%'} sx={{ height: '100vh' }}>
                         <Card variant="outlined" sx={{ maxWidth: 360, borderRadius: 2, boxShadow: 10 }}>
                             <Box sx={{ px: 2, pt: 1, pr: 2, pb: 1 }}>
                                 <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -309,17 +308,17 @@ export const DashboardContent = () => {
                             </TabPanel>
                             <TabPanel value={tabValue} index={1}>
                                 <Card variant="outlined" sx={{}}>
-                                   <Books />
+                                    <Books />
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={2}>
                                 <Card variant="outlined">
-                                   <Certificates />
+                                    <Certificates />
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={3}>
                                 <Card variant="outlined">
-                                   <Universities />
+                                    <Universities />
                                 </Card>
                             </TabPanel>
                         </Box>
