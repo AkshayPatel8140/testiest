@@ -322,7 +322,12 @@ export const DashboardContent = () => {
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={3}>
-                                <Card variant="outlined">
+                                <Card
+                                    variant="outlined"
+                                    sx={{
+                                        height: 'calc(100vh - 200px)',  // Ensures vertical scroll if content overflows
+                                        overflowY: 'auto' // Enables vertical scrolling
+                                    }}>
                                     <Universities />
                                 </Card>
                             </TabPanel>
