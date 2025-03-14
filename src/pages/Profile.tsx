@@ -35,9 +35,9 @@ const Card = styled(MuiCard)(({ theme }) => ({
   }),
 }));
 
-const SignUpContainer = styled(Stack)(({ theme }) => ({
-//   height: "calc((1 - var(--template-frame-height, 0)) * 100dvh)",
-//   minHeight: "100%",
+const ProfileContainer = styled(Stack)(({ theme }) => ({
+  //   height: "calc((1 - var(--template-frame-height, 0)) * 100dvh)",
+  //   minHeight: "100%",
   padding: theme.spacing(2),
   [theme.breakpoints.up("sm")]: {
     padding: theme.spacing(4),
@@ -123,7 +123,7 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
   return (
     <>
       <CssBaseline enableColorScheme />
-      <SignUpContainer direction="column" justifyContent="space-between">
+      <ProfileContainer direction="column" justifyContent="space-between" sx={{}}>
         <Card variant="outlined">
           <Box
             component="form"
@@ -315,7 +315,7 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
                 sx={{ backgroundColor: "#0A4EB2" }}
                 onClick={handleSave}
               >
-               Save
+                Save
               </Button>
               <Button
                 type="submit"
@@ -324,12 +324,12 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
                 sx={{ backgroundColor: "#0A4EB2" }}
                 onClick={handleCancel}
               >
-               Cancel
+                Cancel
               </Button>
             </Box>
           </Box>
         </Card>
-      </SignUpContainer>
+      </ProfileContainer>
     </>
     // {/* </AppTheme> */ }
   );

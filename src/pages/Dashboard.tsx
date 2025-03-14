@@ -64,7 +64,7 @@ const CustomButton = styled(IconButton)({
 const CustomTabs = styled(Tabs)({
     backgroundColor: "#F5F5F5",
     borderRadius: "50px",
-    height: '32px',
+    height: '31px',
     padding: "4px",
     boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
     minHeight: "auto",
@@ -308,7 +308,7 @@ export const DashboardContent = () => {
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={1}>
-                                <Card variant="outlined">
+                                <Card variant="outlined" sx={{}}>
                                    <Books />
                                 </Card>
                             </TabPanel>
