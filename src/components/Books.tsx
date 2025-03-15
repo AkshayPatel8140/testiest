@@ -1,27 +1,25 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import Grid from '@mui/material/Grid';
-import { Box, Link, Container } from '@mui/material';
+import { Box, Link, Container, Grid2 as Grid } from '@mui/material';
+import books from '../data/books';
 
-const books = [
-    { id: 1, img: "https://picsum.photos/200/300" },
-    { id: 2, img: "https://picsum.photos/200/300" },
-    { id: 3, img: "https://picsum.photos/200/300" },
-    { id: 4, img: "https://picsum.photos/200/300" },
-    { id: 5, img: "https://picsum.photos/200/300" },
-    { id: 6, img: "https://picsum.photos/200/300" },
-];
-
-const handleBookClick = () => {
-    alert("Book clicked");
+const handleBookClick = (url) => {
+    const win = window.open(url, '_blank');
+    if (win != null) {
+        win.focus();
+    }
 };
 
 export default function Books() {
     return (
-        <Container maxWidth="lg" sx={{ py: 2 }}>
+        <Container maxWidth="lg" sx={{
+            py: 2,
+            height: 'calc(100vh - 200px)',  // Ensures vertical scroll if content overflows
+            overflowY: 'auto' // Enables vertical scrolling
+        }} >
             {/* Grid Layout */}
-            <Grid container spacing={6} justifyContent="center">
+            <Grid container spacing={6} marginBottom={5} justifyContent="center">
                 {books.map((book) => (
                     <Grid item xs={12} sm={6} md={4} key={book.id} display="flex" justifyContent="center">
                         <Box sx={{ position: 'relative', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
@@ -54,7 +52,7 @@ export default function Books() {
                                     transition: 'transform 0.2s',
                                     '&:hover': { transform: 'scale(1.05)' },
                                 }}
-                                onClick={handleBookClick}
+                                onClick={() => handleBookClick(book.link)}
                             >
                                 <CardMedia
                                     component="img"
@@ -70,11 +68,11 @@ export default function Books() {
             </Grid>
 
             {/* "View More" Link */}
-            <Box display="flex" justifyContent="center" mt={4}>
+            {/* <Box display="flex" justifyContent="center" mt={4}>
                 <Link href="#" underline="hover" sx={{ color: 'blue', fontSize: '16px' }}>
                     + View More
                 </Link>
-            </Box>
+            </Box> */}
         </Container>
     );
 }
