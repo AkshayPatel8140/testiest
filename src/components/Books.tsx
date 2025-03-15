@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import { Box, Link, Container, Grid2 as Grid } from '@mui/material';
-import books from '../data/books.tsx';
+import { Box, Container, Grid2 as Grid } from '@mui/material';
+import { books, books2 } from '../data/books.tsx';
 
 const handleBookClick = (url) => {
     const win = window.open(url, '_blank');
@@ -11,7 +11,8 @@ const handleBookClick = (url) => {
     }
 };
 
-export default function Books() {
+export default function Books(props: any) {
+    const data = props.isSearch ? books2 : books;
     return (
         <Container maxWidth="lg" sx={{
             py: 2,
@@ -20,7 +21,7 @@ export default function Books() {
         }} >
             {/* Grid Layout */}
             <Grid container spacing={6} marginBottom={5} justifyContent="center">
-                {books.map((book) => (
+                {data.map((book) => (
                     <Grid item xs={12} sm={6} md={4} key={book.id} display="flex" justifyContent="center">
                         <Box sx={{ position: 'relative', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
 

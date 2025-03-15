@@ -110,6 +110,23 @@ const textHeader = (title: string = '') => {
     return <Typography variant="body1" fontWeight="bold">{title}:</Typography>
 }
 
+const LoadingView = () => {
+    return (
+        <Card
+            variant="outlined"
+            sx={{
+                height: "calc(100vh - 200px)", // Ensures vertical scroll if content overflows
+                overflowY: "auto", // Enables vertical scrolling
+                display: "flex", // Enables flexbox for centering
+                alignItems: "center", // Centers vertically
+                justifyContent: "center", // Centers horizontally
+            }}
+        >
+            <CircularProgress disableShrink />
+        </Card>
+    )
+}
+
 
 export const DashboardContent = () => {
     const [tabValue, setTabValue] = React.useState(0);
@@ -319,25 +336,12 @@ export const DashboardContent = () => {
                         <Box>
                             <TabPanel value={tabValue} index={0}>
                                 <Card variant="outlined">
-                                    {loading ?
-                                        <Card
-                                            variant="outlined"
-                                            sx={{
-                                                height: "calc(100vh - 200px)", // Ensures vertical scroll if content overflows
-                                                overflowY: "auto", // Enables vertical scrolling
-                                                display: "flex", // Enables flexbox for centering
-                                                alignItems: "center", // Centers vertically
-                                                justifyContent: "center", // Centers horizontally
-                                            }}
-                                        >
-                                            <CircularProgress disableShrink />
-                                        </Card>
-                                        : <CourseTable isSearch={isSearch} />}
+                                    {loading ? LoadingView() : <CourseTable isSearch={isSearch} />}
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={1}>
                                 <Card variant="outlined" sx={{}}>
-                                    <Books />
+                                    {loading ? LoadingView() : <Books isSearch={isSearch} />}
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={2}>

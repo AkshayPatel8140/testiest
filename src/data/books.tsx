@@ -1,20 +1,4 @@
-const books = [
-    { id: 1, img: "https://picsum.photos/200/300" },
-    { id: 2, img: "https://picsum.photos/200/300" },
-    { id: 3, img: "https://picsum.photos/200/300" },
-    { id: 4, img: "https://picsum.photos/200/300" },
-    { id: 5, img: "https://picsum.photos/200/300" },
-    { id: 6, img: "https://picsum.photos/200/300" },
-    { id: 6, img: "https://picsum.photos/200/300" },
-    { id: 6, img: "https://picsum.photos/200/300" },
-    { id: 6, img: "https://picsum.photos/200/300" },
-    { id: 6, img: "https://picsum.photos/200/300" },
-    { id: 6, img: "https://picsum.photos/200/300" },
-
-];
-
-
-const books1 = [
+export const books = [
     // { 'id': 1, 'name': 'Introductory Statistics', 'img': 'https://www.freetechbooks.com/uploads/new-dark-grey-background_cr.jpg', 'link': 'https://www.freetechbooks.com/introductory-statistics-t1388.html' },
     { 'id': 2, 'name': 'College Algebra - UCO Adaptation, 1st Edition', 'img': 'https://www.freetechbooks.com/uploads/1673390483-math-college-algebra--fa17-uco.jpg', 'link': 'https://www.freetechbooks.com/college-algebra-uco-adaptation-1st-edition-t1387.html' },
     { 'id': 3, 'name': 'Mathematical Foundations And Aspects of Discrete Mathematics', 'img': 'https://www.freetechbooks.com/uploads/1672997658-discmath-root-b.jpg', 'link': 'https://www.freetechbooks.com/mathematical-foundations-and-aspects-of-discrete-mathematics-t1386.html' },
@@ -1259,6 +1243,20 @@ const books1 = [
     { 'id': 1242, 'name': "Cygwin User's Guide", 'img': 'https://www.freetechbooks.com/uploads/new-dark-grey-background_cr.jpg', 'link': 'https://www.freetechbooks.com/cygwin-user-s-guide-t9.html' },
 ]
 
-
-
-export default books1;
+export const books2 = [
+    { 'id': 54, 'name': 'Resilient Web Design', 'img': 'https://www.freetechbooks.com/uploads/1497367711-ResilientWebDesign-portrait-rs.jpg', 'link': 'https://www.freetechbooks.com/resilient-web-design-t1332.html' },
+    { 'id': 290, 'name': 'Ruby on Rails Tutorial: Learn Web Development with Rails', 'img': 'https://www.freetechbooks.com/uploads/1469579588-ruby_on_rails.jpg', 'link': 'https://www.freetechbooks.com/ruby-on-rails-tutorial-learn-web-development-with-rails-t1085.html' },
+    { 'id': 8, 'name': 'Isomorphism -- Mathematics of Programming', 'img': 'https://www.freetechbooks.com/uploads/1672562055-1646924278-unplugged-en-2.jpg', 'link': 'https://www.freetechbooks.com/isomorphism-mathematics-of-programming-t1381.html' },
+    { 'id': 17, 'name': 'Notes on Data Structures and Programming Techniques', 'img': 'https://www.freetechbooks.com/uploads/1672562610-1614699379-notes_dsa.jpg', 'link': 'https://www.freetechbooks.com/notes-on-data-structures-and-programming-techniques-t1372.html' },
+    { 'id': 24, 'name': 'Introduction to Scientific Programming with Python', 'img': 'https://www.freetechbooks.com/uploads/1672562991-1614259634-2020_Book_IntroductionToScientificProgra.jpg', 'link': 'https://www.freetechbooks.com/introduction-to-scientific-programming-with-python-t1365.html' },
+    { 'id': 29, 'name': 'The Coder’s Apprentice - Learning Programming with Python 3', 'img': 'https://www.freetechbooks.com/uploads/1672563482-1613660184-pythonbook.jpg', 'link': 'https://www.freetechbooks.com/the-coders-apprentice-learning-programming-with-python-3-t1359.html' },
+    { 'id': 50, 'name': 'Programming in C', 'img': 'https://www.freetechbooks.com/uploads/new-dark-grey-background_cr.jpg', 'link': 'https://www.freetechbooks.com/programming-in-c-t1337.html' },
+    { 'id': 81, 'name': 'Parallel Algorithms', 'img': 'https://www.freetechbooks.com/uploads/1491187643-parallel_algorithms.jpg', 'link': 'https://www.freetechbooks.com/parallel-algorithms-t1305.html' },
+    { 'id': 19, 'name': 'Notes on Randomized Algorithms', 'img': 'https://www.freetechbooks.com/uploads/1672562686-1614698514-notes.jpg', 'link': 'https://www.freetechbooks.com/notes-on-randomized-algorithms-t1370.html' },
+    { 'id': 115, 'name': 'Numerical Algorithms: Methods for Computer Vision, Machine Learning, and Graphics', 'img': 'https://www.freetechbooks.com/uploads/1482139187-4157eeI084L._SX343_BO1,204,203,200_.jpg', 'link': 'https://www.freetechbooks.com/numerical-algorithms-methods-for-computer-vision-machine-learning-and-graphics-t1270.html' },
+    { 'id': 222, 'name': 'Problem Solving with Algorithms and Data Structures using Python', 'img': 'https://www.freetechbooks.com/uploads/1477556606-51YORtBDG4L._SX405_BO1,204,203,200_.jpg', 'link': 'https://www.freetechbooks.com/problem-solving-with-algorithms-and-data-structures-using-python-t1157.html' },
+    { 'id': 140, 'name': 'Stochastic Multiplayer Games: Theory and Algorithms', 'img': 'https://www.freetechbooks.com/uploads/1481234393-41TMv4xGL9L._SX329_BO1,204,203,200_.jpg', 'link': 'https://www.freetechbooks.com/stochastic-multiplayer-games-theory-and-algorithms-t1245.html' },
+    { 'id': 273, 'name': 'Developing Multi-Tenant Applications for the Cloud on Microsoft Windows Azure™, Third Edition', 'img': 'https://www.freetechbooks.com/uploads/1472108605-Developing Multi-tenant Applications for the Cloud 3rd Edition 2.jpg', 'link': 'https://www.freetechbooks.com/developing-multi-tenant-applications-for-the-cloud-on-microsoft-windows-azure-third-edition-t1104.html' },
+    { 'id': 514, 'name': 'Store Your Data in the Cloud - Cloud Computing in 2012', 'img': 'https://www.freetechbooks.com/uploads/new-dark-grey-background_cr.jpg', 'link': 'https://www.freetechbooks.com/store-your-data-in-the-cloud-cloud-computing-in-2012-t845.html' },
+    { 'id': 154, 'name': 'Learning Deep Architectures for AI', 'img': 'https://www.freetechbooks.com/uploads/1480471974-ftml_book_rs.jpg', 'link': 'https://www.freetechbooks.com/learning-deep-architectures-for-ai-t1229.html' },
+]
