@@ -67,6 +67,8 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
     const navigate = useNavigate()
 
     const handleClickOpen = () => {
+        console.log('open', open);
+
         setOpen(true);
     };
 
