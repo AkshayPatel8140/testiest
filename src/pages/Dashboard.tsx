@@ -351,7 +351,7 @@ export const DashboardContent = () => {
                                         height: 'calc(100vh - 200px)',  // Ensures vertical scroll if content overflows
                                         overflowY: 'auto' // Enables vertical scrolling
                                     }}>
-                                    <Certificates />
+                                    {loading ? LoadingView() : <Certificates isSearch={isSearch} />}
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={3}>

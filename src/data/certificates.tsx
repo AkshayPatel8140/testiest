@@ -1,4 +1,4 @@
-const certificates = [
+export const certificates = [
     {
         id: 1,
         title: 'Google Data Analytics',
@@ -83,55 +83,50 @@ const certificates = [
         image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/c0/7c9805bdef4f32a8b7aef5b5ba465e/Specialization-Image_600x600.png?auto=format%2Ccompress&dpr=2&blur=200&px=8&max-w=265',
         link: 'https://www.coursera.org/specializations/ai-healthcare'
     },
-    // {
-    //     id: 1,
-    //     title: "Google Data Analytics Professional Certificate",
-    //     description: "Offered by Google, this course teaches the foundations of data analytics, including data cleaning, analysis, visualization, and the use of spreadsheets, SQL, R programming, and Tableau.",
-    //     image: "https://via.placeholder.com/60"
-    // },
-    // {
-    //     id: 2,
-    //     title: "CS50: Introduction to Computer Science",
-    //     description: "Provided by Harvard University through Coursera, this entry-level course covers fundamental concepts of computer science and programming using languages like C, Python, SQL, and more.",
-    //     image: "https://via.placeholder.com/60"
-    // },
-    // {
-    //     id: 3,
-    //     title: "AI For Everyone",
-    //     description: "Offered by Coursera, this course provides a non-technical introduction to artificial intelligence, exploring its applications, implications, and how to navigate AI in the business world.",
-    //     image: "https://via.placeholder.com/60"
-    // },
-    // {
-    //     id: 4,
-    //     title: "The Complete Digital Marketing Course",
-    //     description: "Available on Udemy, this comprehensive course covers SEO, social media marketing, content marketing, email marketing, and more, aiming to equip learners with practical digital marketing skills.",
-    //     image: "https://via.placeholder.com/60"
-    // },
-    // {
-    //     id: 5,
-    //     title: "Project Management Principles and Practices",
-    //     description: "Offered by the University of California, Irvine through Coursera, this specialization introduces project management fundamentals, including planning, scheduling, and managing projects effectively.",
-    //     image: "https://via.placeholder.com/60"
-    // },
-    // {
-    //     id: 6,
-    //     title: "Google IT Support Professional Certificate",
-    //     description: "Offered by Google through Coursera, this program provides the skills needed for an entry-level IT support role, covering topics like troubleshooting, networking, operating systems, system administration, and security.",
-    //     image: "https://via.placeholder.com/60"
-    // },
-    // {
-    //     id: 7,
-    //     title: "IBM Data Science Professional Certificate",
-    //     description: "This course teaches the foundations of data analytics, including data cleaning, analysis, visualization, and the use of spreadsheets, SQL, R programming, and Tableau.",
-    //     image: "https://via.placeholder.com/60"
-    // },
-    // {
-    //     id: 8,
-    //     title: "Microsoft Python Development Professional Certificate",
-    //     description: "Offered by Microsoft on Coursera, this program teaches Python programming fundamentals, data structures, and algorithms, preparing learners for entry-level Python developer roles.",
-    //     image: "https://via.placeholder.com/60"
-    // }
 ];
 
 
-export default certificates;
+export const certificates2 = [
+    {
+        id: 1,
+        title: 'Google Data Analytics',
+        description: "Prepare for a new career in the high-growth field of data analytics, no experience or degree required. Get professional training designed by Google and have the opportunity to connect with top employers. There are over 251,000 open jobs in data analytics with a median entry-level salary of $95,000 in the U.S.Â¹\nData analytics is the collection, transformation, and organization of data in order to draw conclusions, make predictions, and drive informed decision making. \nOver 8 courses, gain in-demand skills that prepare you for an entry-level job. Youâ\x80\x99ll learn from Google employees whose foundations in data analytics served as launchpads for their own careers. At under 10 hours per week, you can complete the certificate in less than 6 months. \nUpon completion, you can directly apply for jobs with Google and over 150 U.S. employers, including Deloitte, Target, Verizon, and of course, Google. \n75% of certificate graduates report a positive career outcome (e.g., new job, promotion, or raise) within six months of completionÂ²\nÂ¹Lightcastâ\x84¢ U.S. Job Postings (2024: Jan. 1, 2024 - Dec. 31, 2024)\nÂ²Based on program graduate survey, United States 2022\nApplied Learning Project\nThis program includes over 180 hours of instruction and hundreds of practice-based assessments, which will help you simulate real-world data analytics scenarios that are critical for success in the workplace. The content is highly interactive and exclusively developed by Google employees with decades of experience in data analytics. Through a mix of videos, assessments, and hands-on labs, youâ\x80\x99ll get introduced to analysis tools and platforms and key analytical skills required for an entry-level job.\nSkills youâ\x80\x99ll gain will include: Data cleaning, problem solving, critical thinking, data ethics, and data visualization\nPlatforms and tools you will learn include: Presentations, Spreadsheets, SQL, Tableau and R Programming\nIn addition to expert training and hands-on projects, you'll complete a case study that you can share with potential employers to showcase your new skill set. Learn concrete skills that top employers are hiring for right now.\n",
+        image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/41/4d3d7c05fb42729c9d90352e072ca3/1060x596_GCC-photos_Karrim.png?auto=format%2Ccompress%2C%20enhance&dpr=1&w=320&h=180&fit=crop&q=50&crop=faces',
+        link: 'https://www.coursera.org/professional-certificates/google-data-analytics'
+    },
+    {
+        id: 8,
+        title: 'IBM Data Science',
+        description: "Prepare for a career in the high-growth field of data science. In this program, youâ\x80\x99ll develop the skills, tools, and portfolio to have a competitive edge in the job market as an entry-level data scientist in as little as 4 months. No prior knowledge of computer science or programming languages is required.Â\xa0\nData science involves gathering, cleaning, organizing, and analyzing data with the goal of extracting helpful insights and predicting expected outcomes. The demand for skilled data scientists who can use data to tell compelling stories to inform business decisions has never been greater.Â\xa0\nYouâ\x80\x99ll learn in-demand skills used by professional data scientists including databases, data visualization, statistical analysis, predictive modeling, machine learning algorithms, and data mining. Youâ\x80\x99ll also work with the latest languages, tools,and libraries including Python, SQL, Jupyter notebooks, Github, Rstudio, Pandas, Numpy, ScikitLearn, Matplotlib, and more.\nUpon completing the full program, you will have built a portfolio of data science projects to provide you with the confidence to excel in your interviews. You will also receive access to join IBMâ\x80\x99s Talent Network where youâ\x80\x99ll see job opportunities as soon as they are posted, recommendations matched to your skills and interests, and tips and tricks to help you stand apart from the crowd.Â\xa0\nThis program is ACEÂ® and FIBAA recommended â\x80\x94when you complete, you can earn up to 12 college credits and 6 ECTS credits.\nApplied Learning Project\nThis Professional Certificate has a strong emphasis on applied learning and includes a series of hands-on labs in the IBM Cloud that give you practical skills with applicability to real jobs. You'll also have the option to learn how generative AI tools and techniques are used in data science.\nTools youâ\x80\x99ll use: Jupyter / JupyterLab, GitHub, R Studio, and Watson Studio\nLibraries youâ\x80\x99ll use: Pandas, NumPy, Matplotlib, Seaborn, Folium, ipython-sql, Scikit-learn, ScipPy, etc.\nProjects youâ\x80\x99ll complete:\nExtract and graph financial data with the Pandas Python library\nUse SQL to query census, crime, and school demographic data sets\nWrangle data, graph plots, and create regression models to predict housing prices with data science Python libraries\nCreate a dynamic Python dashboard to improve US domestic flight reliability\nApply machine learning classification algorithms to predict whether a loan case will be paid off\nTrain and compare machine learning models\n",
+        image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/23/22bc54f77f45a2b057f4ff518d272f/iStock-1169539468.jpg?auto=format%2Ccompress&dpr=2&blur=200&px=8&max-w=265',
+        link: 'https://www.coursera.org/professional-certificates/ibm-data-science'
+    },
+    {
+        id: 11,
+        title: 'IBM AI Developer',
+        description: "As Artificial intelligence (AI) and generative AI revolutionize our world, the demand for AI Software Developers with the right cutting-edge skills is soaring. This IBM AI Developer Professional Certificate will equip you with sought-after expertize in building AI-powered chatbots and apps and enable you to launch your AI career in just 6 months. No prior AI or programming experience required. \nAI Developers are prized software engineers who design, develop, and implement AI and genAI powered apps And virtual assistants. They specialize in applying their programming expertize and integrating pre-built AI models and APIs to create intelligent software and solutions.\nDuring this self-paced Professional Certificate program, youâ\x80\x99ll master the fundamentals of software engineering, AI, generative AI, prompt engineering, HTML, JavaScript and Python programming. And through hands-on labs and projects, youâ\x80\x99ll gain practical experience in building AI apps you can talk about in interviews. \nOnce youâ\x80\x99ve successfully completed the program, youâ\x80\x99ll have a Professional Certificate from Coursera and a digital badge from IBM that showcase your AI proficiency. And youâ\x80\x99ll have access to career assistance, job search, and interview preparation resources. \nEnroll in this IBM AI Developer Professional Certificate today and transform your career opportunities in just 6 months.\nApplied Learning Project\nThroughout this Professional Certificate, you will complete hands-on labs and projects that help you practice and apply your newly acquired generative AI and programming skills. \nExamples of the projects you will complete include: \nDevelop a portfolio website using HTML, CSS and JavaScript.\nBuild a sentiment analysis application using Python, Flask and embedded AI libraries. \nGive meaningful captions to your photos using Generative AI.\nCreate ChatGPT-like website with open source LLMs.\nCreate a voice assistant with OpenAI's GPT APIs and IBM Watson libraries.\nDevelop an AI meeting companion with Llama. \nSummarize your private data with LLMs and generative AI.\nBuild â\x80\x9cBabel Fishâ\x80\x9d, a voice enabled universal language translator with Flan and Gradio.\n",
+        image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/f3/2b860471b441f38659038b5ce24c1e/image-1-1-.png?auto=format%2Ccompress&dpr=2&blur=200&px=8&max-w=265',
+        link: 'https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai'
+    },
+    {
+        id: 4,
+        title: 'Google IT Support',
+        description: 'Prepare for a career in the high-growth field of IT, no experience or degree required. Get professional training designed by Google and get on the fast-track to a competitively paid job. There are over 295,000 open jobs in IT support with a median entry-level salary of $65,000 in the U.S.Â¹\nUpon completion, you can directly apply for jobs with Google and over 150 U.S. employers, including Deloitte, Target, Verizon, and of course, Google. \n75% of certificate graduates report a positive career outcome (e.g., new job, promotion, or raise) within six months of completionÂ²\nThis program also prepares you for the CompTIA A+Opens in a new tab exams, the industry standard certification for ITâ\x80\x94youâ\x80\x99ll earn a dual credential Opens in a new tabwhen you complete both.\nThis program is ACEÂ® approvedâ\x80\x94when you complete, you can earn up to 15 college credits, the equivalent of 5 college courses at bachelorâ\x80\x99s degree level.\nIf youâ\x80\x99re interested in building on your IT foundations, check out the Google IT Automation with Python Professional CertificateOpens in a new tab.\nCheck out all Google Career Certificates hereOpens in a new tab.\nÂ¹Lightcastâ\x84¢ U.S. Job Postings (2024: Jan. 1, 2024 - Dec. 31, 2024).\nÂ²Based on program graduate survey, United States 2022\nApplied Learning Project\nThis program includes over 100 hours of instruction and hundreds of practice-based assessments, which will help you simulate real-world IT support scenarios that are critical for success in the workplace.\nThe content is highly interactive and exclusively developed by Google employees with decades of experience in IT.\nThrough a mix of videos, assessments, and hands-on labs, youâ\x80\x99ll be introduced to troubleshooting, customer service, networking, operating systems, and security â\x80\x94 foundational IT skills required for an entry-level job. \nYour skills will include: Network protocols, cloud computing, Windows operating system, Linux command line, systems administration, encryption algorithms and techniques, and more. \nLearn concrete skills that top employers are hiring for right now.\n',
+        image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/5e/107f6ec9544c0a9785cd4b16787917/Amie-Hanbury-Hero-Image-.jpg?auto=format%2Ccompress%2C%20enhance&dpr=1&w=320&h=180&fit=crop&q=50&crop=faces',
+        link: 'https://www.coursera.org/professional-certificates/google-it-support'
+    },
+    {
+        id: 7,
+        title: 'Deep Learning',
+        description: 'The Deep Learning Specialization is a foundational program that will help you understand the capabilities, challenges, and consequences of deep learning and prepare you to participate in the development of leading-edge AI technology. \nIn this Specialization, you will build and train neural network architectures such as Convolutional Neural Networks, Recurrent Neural Networks, LSTMs, Transformers, and learn how to make them better with strategies such as Dropout, BatchNorm, Xavier/He initialization, and more. Get ready to master theoretical concepts and their industry applications using Python and TensorFlow and tackle real-world cases such as speech recognition, music synthesis, chatbots, machine translation, natural language processing, and more.\nAI is transforming many industries. The Deep Learning Specialization provides a pathway for you to take the definitive step in the world of AI by helping you gain the knowledge and skills to level up your career. Along the way, you will also get career advice from deep learning experts from industry and academia.\nApplied Learning Project\nBy the end youâ\x80\x99ll be able to:\n â\x80¢ Build and train deep neural networks, implement vectorized neural networks, identify architecture parameters, and apply DL to your applications\nâ\x80¢ Use best practices to train and develop test sets and analyze bias/variance for building DL applications, use standard NN techniques, apply optimization algorithms, and implement a neural network in TensorFlow\nâ\x80¢ Use strategies for reducing errors in ML systems, understand complex ML settings, and apply end-to-end, transfer, and multi-task learning\nâ\x80¢ Build a Convolutional Neural Network, apply it to visual detection and recognition tasks, use neural style transfer to generate art, and apply these algorithms to image, video, and other 2D/3D data\nâ\x80¢ Build and train Recurrent Neural Networks and its variants (GRUs, LSTMs), apply RNNs to character-level language modeling, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformers to perform Named Entity Recognition and Question Answering\n',
+        image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/a4/079d5e7c7b45ac9107f22bfcfeab91/Specialization-logo.png?auto=format%2Ccompress&dpr=2&blur=200&px=8&max-w=265',
+        link: 'https://www.coursera.org/specializations/deep-learning'
+    },
+    {
+        id: 2,
+        title: 'Google Cybersecurity',
+        description: 'Prepare for a new career in the high-growth field of cybersecurity, no degree or experience required. Get professional training designed and delivered by subject matter experts at Google and have the opportunity to connect with top employers.\nOrganizations must continuously protect themselves and the people they serve from cyber-related threats, like fraud and phishing. They rely on cybersecurity to maintain the confidentiality, integrity, and availability of their internal systems and information. Cybersecurity analysts use a collection of methods and technologies to safeguard against threats and unauthorized access â\x80\x94 and to create and implement solutions should a threat get through.\nDuring the 8 courses in this certificate program, youâ\x80\x99ll learn from cybersecurity experts at Google and gain in-demand skills that prepare you for entry-level roles like cybersecurity analyst, security operations center (SOC) analyst, and more. At under 10 hours per week, you can complete the certificate in less than 6 months.Â\xa0\nUpon completion of the certificate, you can directly apply for jobs with Google and over 150 U.S. employers, including American Express, Deloitte, Colgate-Palmolive, Mandiant (now part of Google Cloud), T-Mobile, and Walmart.\nThe Google Cybersecurity Certificate helps prepare you for the CompTIA Security+ exam, the industry leading certification for cybersecurity roles. Youâ\x80\x99ll earn a dual credential when you complete both.\nApplied Learning Project\nThis program includes 170 hours of instruction and hundreds of practice-based assessments and activities that simulate real-world cybersecurity scenarios that are critical for success in the workplace. Through a mix of videos, assessments, and hands-on labs, youâ\x80\x99ll become familiar with the cybersecurity tools, platforms, and skills required for an entry-level job.\nSkills youâ\x80\x99ll gain will include: Python, Linux, SQL, Security Information and Event Management (SIEM) tools, Intrusion Detection Systems (IDS), communication, collaboration, analysis, problem solving and more!Â\xa0\nAdditionally, each course includes portfolio activities through which youâ\x80\x99ll showcase examples of cybersecurity skills that you can share with potential employers. Acquire concrete skills that top employers are hiring for right now.\n',
+        image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/5d/60dbadd92b4f0a8d855b312b8f890d/google_cropped_hero_r.jpg?auto=format%2Ccompress%2C%20enhance&dpr=1&w=320&h=180&fit=crop&q=50&crop=faces',
+        link: 'https://www.coursera.org/professional-certificates/google-cybersecurity'
+    },
+]

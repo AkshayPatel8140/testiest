@@ -1,6 +1,6 @@
 import { Avatar, Box, List, ListItem, ListItemAvatar, styled, Typography } from '@mui/material';
 import * as React from 'react';
-import certificates from '../data/certificates.tsx';
+import { certificates, certificates2 } from '../data/certificates.tsx';
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
   '&:nth-of-type(even)': {
@@ -27,10 +27,11 @@ const HandleOnclickCert = (data: any) => {
   }
 }
 
-export default function Certificates() {
+export default function Certificates(props) {
+  const data = props.isSearch ? certificates2 : certificates;
   return (
     <List sx={{ width: '100%', bgcolor: 'background.paper', py: 0, pb: 0 }}>
-      {certificates.map((cert, index) => (
+      {data.map((cert, index) => (
         <StyledListItem
           key={cert.id}
           sx={{
@@ -44,7 +45,7 @@ export default function Certificates() {
         >
           <Box flex={1}>
             <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-              {cert.id}. {cert.title}
+              {index + 1}. {cert.title}
             </Typography>
             <Typography variant="body2"
               sx={{
