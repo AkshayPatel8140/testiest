@@ -111,8 +111,6 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
   };
 
   const validateInputs = () => {
-    const email = document.getElementById("email") as HTMLInputElement;
-    const password = document.getElementById("password") as HTMLInputElement;
 
     let isValid = true;
 
@@ -160,33 +158,36 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
       setPhoneNumberError(false);
       setPhoneNumberErrorMessage("");
     }
+    if (oldPasswordText || passwordText || confirmPasswordText) {
 
-    if (!oldPasswordText || oldPasswordText.length < 6) {
-      setOldPasswordError(true);
-      setOldPasswordErrorMessage("!! Please enter a valid old Password !!");
-      isValid = false;
-    } else {
-      setOldPasswordError(false);
-      setOldPasswordErrorMessage("");
+      if (!oldPasswordText || oldPasswordText.length < 6) {
+        setOldPasswordError(true);
+        setOldPasswordErrorMessage("!! Please enter a valid old Password !!");
+        isValid = false;
+      } else {
+        setOldPasswordError(false);
+        setOldPasswordErrorMessage("");
+      }
+
+      if (!passwordText || passwordText.length < 6) {
+        setPasswordError(true);
+        setPasswordErrorMessage("!! Password must be at least 6 characters long  !!");
+        isValid = false;
+      } else {
+        setPasswordError(false);
+        setPasswordErrorMessage("");
+      }
+
+      if (!confirmPasswordText || confirmPasswordText !== passwordText) {
+        setConfirmPasswordError(true);
+        setConfirmPasswordErrorMessage("!! Confirm Password must match with the Password  !!");
+        isValid = false;
+      } else {
+        setConfirmPasswordError(false);
+        setConfirmPasswordErrorMessage("");
+      }
     }
 
-    if (!passwordText || passwordText.length < 6) {
-      setPasswordError(true);
-      setPasswordErrorMessage("!! Password must be at least 6 characters long  !!");
-      isValid = false;
-    } else {
-      setPasswordError(false);
-      setPasswordErrorMessage("");
-    }
-
-    if (!confirmPasswordText || confirmPasswordText !== passwordText) {
-      setConfirmPasswordError(true);
-      setConfirmPasswordErrorMessage("!! Confirm Password must match with the Password  !!");
-      isValid = false;
-    } else {
-      setConfirmPasswordError(false);
-      setConfirmPasswordErrorMessage("");
-    }
 
     return isValid;
   };
@@ -197,8 +198,9 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
 
   const handleSave = () => {
     // TODO validateInputs
-    validateInputs()
-    // navigate('/dashboard')
+    if (validateInputs()) {
+      navigate('/dashboard')
+    }
   }
   const handleCancel = () => {
     navigate('/dashboard')
@@ -316,7 +318,7 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
               </FormControl>
 
               <FormControl sx={{ width: "100%", minWidth: "300px" }}>
-                <FormLabel htmlFor="firstname">Phone number</FormLabel>
+                <FormLabel htmlFor="phoneNumber">Phone number</FormLabel>
                 <TextField
                   value={phoneNumberText}
                   error={phoneNumberError}
@@ -409,7 +411,7 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
                 />
               </FormControl>
               <FormControl sx={{ width: "100%", minWidth: "300px" }}>
-                <FormLabel htmlFor="password">Confirm Password</FormLabel>
+                <FormLabel htmlFor="confirmPassword">Confirm Password</FormLabel>
                 <TextField
                   value={confirmPasswordText}
                   error={confirmPasswordError}

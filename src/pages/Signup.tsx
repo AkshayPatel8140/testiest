@@ -58,10 +58,37 @@ const SignUpContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export function SignUp(props: { disableCustomTheme?: boolean }) {
+
+  const [genderText, setGenderText] = React.useState('male');
+
+  const [firstNameText, setFirstNameText] = React.useState('');
+  const [firstNameError, setFirstNameError] = React.useState(false);
+  const [firstNameErrorMessage, setFirstNameErrorMessage] = React.useState("");
+
+  const [lastNameText, setLastNameText] = React.useState('');
+  const [lastNameError, setLastNameError] = React.useState(false);
+  const [lastNameErrorMessage, setLastNameErrorMessage] = React.useState("");
+
+  const [userNameText, setUserNameText] = React.useState('');
+  const [userNameError, setUserNameError] = React.useState(false);
+  const [userNameErrorMessage, setUserNameErrorMessage] = React.useState("");
+
+  const [emailText, setEmailText] = React.useState('');
   const [emailError, setEmailError] = React.useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
+
+  const [phoneNumberText, setPhoneNumberText] = React.useState('');
+  const [phoneNumberError, setPhoneNumberError] = React.useState(false);
+  const [phoneNumberErrorMessage, setPhoneNumberErrorMessage] = React.useState("");
+
+  const [passwordText, setPasswordText] = React.useState('');
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
+
+  const [confirmPasswordText, setConfirmPasswordText] = React.useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = React.useState(false);
+  const [confirmPasswordErrorMessage, setConfirmPasswordErrorMessage] = React.useState("");
+
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate()
 
@@ -73,26 +100,39 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
     setOpen(false);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    if (emailError || passwordError) {
-      event.preventDefault();
-      return;
-    }
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
-
   const validateInputs = () => {
-    navigate('/');
-    const email = document.getElementById("email") as HTMLInputElement;
-    const password = document.getElementById("password") as HTMLInputElement;
+
 
     let isValid = true;
 
-    if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
+    if (!firstNameText) {
+      setFirstNameError(true);
+      setFirstNameErrorMessage("!! First Name can not be empty !!");
+      isValid = false;
+    } else {
+      setFirstNameError(false);
+      setFirstNameErrorMessage("");
+    }
+
+    if (!lastNameText) {
+      setLastNameError(true);
+      setLastNameErrorMessage("!! Last Name can not be empty !!");
+      isValid = false;
+    } else {
+      setLastNameError(false);
+      setLastNameErrorMessage("");
+    }
+
+    if (!userNameText) {
+      setUserNameError(true);
+      setUserNameErrorMessage("!! User Name can not be empty !!");
+      isValid = false;
+    } else {
+      setUserNameError(false);
+      setUserNameErrorMessage("");
+    }
+
+    if (!emailText || !/\S+@\S+\.\S+/.test(emailText)) {
       setEmailError(true);
       setEmailErrorMessage("Please enter a valid email address.");
       isValid = false;
@@ -101,16 +141,42 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
       setEmailErrorMessage("");
     }
 
-    if (!password.value || password.value.length < 6) {
+    if (!phoneNumberText || phoneNumberText.length < 10) {
+      setPhoneNumberError(true);
+      setPhoneNumberErrorMessage("!! Please enter a valid Phone address !!");
+      isValid = false;
+    } else {
+      setPhoneNumberError(false);
+      setPhoneNumberErrorMessage("");
+    }
+
+
+    if (!passwordText || passwordText.length < 6) {
       setPasswordError(true);
-      setPasswordErrorMessage("Password must be at least 6 characters long.");
+      setPasswordErrorMessage("!! Password must be at least 6 characters long  !!");
       isValid = false;
     } else {
       setPasswordError(false);
       setPasswordErrorMessage("");
     }
 
+    if (!confirmPasswordText || confirmPasswordText !== passwordText) {
+      setConfirmPasswordError(true);
+      setConfirmPasswordErrorMessage("!! Confirm Password must match with the Password  !!");
+      isValid = false;
+    } else {
+      setConfirmPasswordError(false);
+      setConfirmPasswordErrorMessage("");
+    }
+
+
     return isValid;
+  };
+
+  const handleSubmit = () => {
+    if (validateInputs()) {
+      navigate('/');
+    }
   };
 
   return (
@@ -128,9 +194,9 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
             Sign up
           </Typography>
           <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
+            // component="form"
+            // onSubmit={handleSubmit}
+            // noValidate
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -148,8 +214,10 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
               <FormControl>
                 <FormLabel htmlFor="firstname">First Name</FormLabel>
                 <TextField
-                  error={emailError}
-                  helperText={emailErrorMessage}
+                  value={firstNameText}
+                  error={firstNameError}
+                  helperText={firstNameErrorMessage}
+                  onChange={(e) => { setFirstNameText(e.target.value) }}
                   id="firstname"
                   type='text'
                   name="firstname"
@@ -159,15 +227,17 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={emailError ? "error" : "primary"}
+                  color={firstNameError ? "error" : "primary"}
                 />
               </FormControl>
 
               <FormControl>
                 <FormLabel htmlFor="email">Last Name</FormLabel>
                 <TextField
-                  error={emailError}
-                  helperText={emailErrorMessage}
+                  value={lastNameText}
+                  error={lastNameError}
+                  helperText={lastNameErrorMessage}
+                  onChange={(e) => { setLastNameText(e.target.value) }}
                   id="lastname"
                   type="text"
                   name="lastname"
@@ -177,26 +247,28 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={emailError ? "error" : "primary"}
+                  color={lastNameError ? "error" : "primary"}
                 />
               </FormControl>
 
               <FormControl>
                 <FormLabel htmlFor="email">User Name</FormLabel>
                 <TextField
-                  error={emailError}
-                  helperText={emailErrorMessage}
+                  value={userNameText}
+                  error={userNameError}
+                  helperText={userNameErrorMessage}
+                  onChange={(e) => { setUserNameText(e.target.value) }}
                   id="username"
                   type="text"
                   name="username"
-                  placeholder="your@email.com"
+                  // placeholder="your@email.com"
                   // autoComplete="email"
                   autoFocus
                   required
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={emailError ? "error" : "primary"}
+                  color={userNameError ? "error" : "primary"}
                 />
               </FormControl>
             </Box>
@@ -210,8 +282,10 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
               <FormControl>
                 <FormLabel htmlFor="firstname">Email</FormLabel>
                 <TextField
+                  value={emailText}
                   error={emailError}
                   helperText={emailErrorMessage}
+                  onChange={(e) => { setEmailText(e.target.value) }}
                   id="email"
                   type="email"
                   name="email"
@@ -226,20 +300,22 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
               </FormControl>
 
               <FormControl>
-                <FormLabel htmlFor="firstname">Phone number</FormLabel>
+                <FormLabel htmlFor="phoneNumber">Phone number</FormLabel>
                 <TextField
-                  error={emailError}
-                  helperText={emailErrorMessage}
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com"
+                  value={phoneNumberText}
+                  error={phoneNumberError}
+                  helperText={phoneNumberErrorMessage}
+                  onChange={(e) => { setPhoneNumberText(e.target.value) }}
+                  id="phoneNumber"
+                  type="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="1(XXX)-XXX-XXXX"
                   autoFocus
                   required
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={emailError ? "error" : "primary"}
+                  color={phoneNumberError ? "error" : "primary"}
                 />
               </FormControl>
 
@@ -251,6 +327,8 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
                   name="row-radio-buttons-group"
+                  defaultValue={genderText}
+                  onSelect={(e) => { setGenderText((e.target as HTMLInputElement).value) }}
                 >
                   <FormControlLabel
                     value="female"
@@ -275,8 +353,10 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
               <FormControl>
                 <FormLabel htmlFor="password">Password</FormLabel>
                 <TextField
+                  value={passwordText}
                   error={passwordError}
                   helperText={passwordErrorMessage}
+                  onChange={(e) => { setPasswordText(e.target.value) }}
                   name="password"
                   placeholder="••••••"
                   type="password"
@@ -291,10 +371,12 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                 />
               </FormControl>
               <FormControl>
-                <FormLabel htmlFor="password">Confirm Password</FormLabel>
+                <FormLabel htmlFor="confirmPassword">Confirm Password</FormLabel>
                 <TextField
-                  error={passwordError}
-                  helperText={passwordErrorMessage}
+                  value={confirmPasswordText}
+                  error={confirmPasswordError}
+                  helperText={confirmPasswordErrorMessage}
+                  onChange={(e) => { setConfirmPasswordText(e.target.value) }}
                   name="CoPassword"
                   placeholder="••••••"
                   type="password"
@@ -305,7 +387,7 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={passwordError ? "error" : "primary"}
+                  color={confirmPasswordError ? "error" : "primary"}
                 />
               </FormControl>
             </Box>
@@ -315,7 +397,7 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                 variant="contained"
                 size="large"
                 sx={{ backgroundColor: "#0A4EB2" }}
-                onClick={validateInputs}
+                onClick={handleSubmit}
               >
                 Sign in
               </Button>
