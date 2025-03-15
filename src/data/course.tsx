@@ -1,4 +1,4 @@
-const courses = [
+export const courses = [
     {
         id: 1,
         name: 'Quantum Computing',
@@ -127,4 +127,60 @@ const courses = [
     }
 ];
 
-export default courses;
+
+export const course2 = [
+    {
+        id: 7,
+        name: 'Advanced Web Technology',
+        duration: '6 Month',
+        description: 'Covers modern web technologies and frameworks for developing dynamic and responsive web applications.'
+    },
+    {
+        id: 1,
+        name: 'Quantum Computing',
+        duration: '6 Month',
+        description: 'An introduction to the principles and concepts of quantum computing, including quantum algorithms and their applications.'
+    },
+    {
+        id: 2,
+        name: 'Introduction to Artificial Intelligence',
+        duration: '6 Month',
+        description: 'This course provides a comprehensive introduction to artificial intelligence (AI), covering its history, fundamental concepts, applications, risks, and mitigation strategies. It offers insights into AI components and technologies, development processes, and ethical considerations, preparing students to understand the evolving world of AI.'
+    },
+    {
+        id: 3,
+        name: 'Introduction to Algorithms',
+        duration: '6 Month',
+        description: 'Fundamental concepts in algorithm design and analysis, including sorting, searching, and graph algorithms.'
+    },
+    {
+        id: 4,
+        name: 'Introduction to Machine Learning',
+        duration: '6 Month',
+        description: 'An overview of machine learning techniques and applications, focusing on supervised and unsupervised learning.'
+    },
+    {
+        id: 6,
+        name: 'Machine Learning and AI',
+        duration: '6 Month',
+        description: 'Advanced topics in machine learning and artificial intelligence, including neural networks and deep learning.'
+    },
+    {
+        id: 9,
+        name: 'Cloud Computing',
+        duration: '6 Month',
+        description: 'This course first gives an overview of cloud computing infrastructure, including cloud computing frameworks, patterns, virtualization, and applications, and then discusses container technologies like Docker. According to Gartner (Gartner, Feb - 2019), by 2022, more than 75% of global organizations will be running containerized applications in production. The course then focuses on the discussion of the container orchestration system Kubernetes. Kubernetes is taking the app development world by storm. It radically changes the way applications are built and deployed in the cloud. Since its introduction in 2014, Kubernetes has become one of the largest and most popular open-source projects in the world. Rumor has it that Google deploys over two billion application containers a week throughout Kubernetes.'
+    },
+    {
+        id: 5,
+        name: 'Introduction to Blockchain',
+        duration: '6 Month',
+        description: 'Explores the fundamentals of blockchain technology, its architecture, and potential applications across various industries.'
+    },
+    {
+        id: 11,
+        name: 'Introduction to Programming Lab',
+        duration: '6 Month',
+        description: 'This course is designed to be taken concurrently with the CS250 Introduction to Programming course. It is aimed at students new to the Python language who may or may not have experience with other programming languages. Students will learn (a) how Python works and its place in the world of programming languages, (b) to work with and manipulate strings, (c) to perform math operations, (d) to work with Python sequences, (e) to collect user input and output results, (f) flow control processing, (g) to write to, and read from files, (h) to write functions, and (i) to handle exceptions.'
+    },
+]

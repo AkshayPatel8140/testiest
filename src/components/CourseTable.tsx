@@ -7,7 +7,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
-import courses from '../data/course.tsx';
+import { courses, course2 } from '../data/course.tsx';
 
 
 const style = {
@@ -46,7 +46,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-export default function CourseTable() {
+export default function CourseTable(props: any) {
 
     const [isModalOpen, setIsModalOpen] = React.useState(false)
     const [selectedCourse, setSelectedCourse] = React.useState<any>(null);
@@ -58,6 +58,7 @@ export default function CourseTable() {
         setIsModalOpen(false);
         setSelectedCourse(null);
     }
+    const data = props.isSearch ? course2 : courses
     return (
         <>
             <Modal
@@ -93,7 +94,7 @@ export default function CourseTable() {
             >
                 <Table sx={{ minWidth: 700 }}>
                     <TableBody>
-                        {courses.map((row, index) => (
+                        {data.map((row, index) => (
                             <StyledTableRow key={index}>
                                 <StyledTableCell>
                                     {index + 1}. {row.name}

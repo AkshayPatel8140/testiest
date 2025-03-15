@@ -120,6 +120,7 @@ export const DashboardContent = () => {
     const [interestedSkillText, setInterestedSkillText] = useState<string>("");
     const [interestedSkill, setInterestedSkillList] = useState<string[]>(['Soft', 'Soft']);
     const [loading, setLoading] = useState<boolean>(true);
+    const [isSearch, setIsSearch] = useState<boolean>(false);
 
 
     useEffect(() => {
@@ -171,7 +172,7 @@ export const DashboardContent = () => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-
+            setIsSearch(true)
         }, 2000);
     }
 
@@ -331,7 +332,7 @@ export const DashboardContent = () => {
                                         >
                                             <CircularProgress disableShrink />
                                         </Card>
-                                        : <CourseTable />}
+                                        : <CourseTable isSearch={isSearch} />}
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={1}>
