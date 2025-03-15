@@ -46,10 +46,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-function createData(name: string, duration: string) {
-    return { name, duration };
-}
-
 export default function CourseTable() {
 
     const [isModalOpen, setIsModalOpen] = React.useState(false)
