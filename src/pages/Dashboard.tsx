@@ -133,9 +133,9 @@ export const DashboardContent = () => {
     const [timeLimit, setTimeLimit] = React.useState(2);
     const [education, setEducation] = useState<string>("");
     const [yourSkillText, setYourSkillText] = useState<string>("");
-    const [skillList, setSkillList] = useState<string[]>(['Soft', 'Soft']);
+    const [skillList, setSkillList] = useState<string[]>([]);
     const [interestedSkillText, setInterestedSkillText] = useState<string>("");
-    const [interestedSkill, setInterestedSkillList] = useState<string[]>(['Soft', 'Soft']);
+    const [interestedSkill, setInterestedSkillList] = useState<string[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [isSearch, setIsSearch] = useState<boolean>(false);
 

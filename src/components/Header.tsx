@@ -29,7 +29,7 @@ export const Header = () => {
                     <Box>
                         <div onClick={() => navigate('/dashboard')}>
 
-                        <AI_Academic_AdviserSvg.ReactComponent />
+                            <AI_Academic_AdviserSvg.ReactComponent />
                         </div>
                     </Box>
                     {shouldProfileMenuVisible &&
@@ -51,14 +51,15 @@ export const Header = () => {
                                     edge="start"
                                     color="inherit"
                                     aria-label="open drawer"
-                                  
+
                                 >
                                     <ReviewsIcon />
                                 </IconButton>
                             </Box>
                             <Box>
                                 <IconButton onClick={handleProfileClick}>
-                                    <Avatar alt="Remy Sharp" src="https://i.pravatar.cc/300" />
+                                    <Avatar alt="Ahmed Banafa" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA-yYacHyLC3d2YSLrFM-7GliPtXb2VY6Byg&s" />
+                                    {/* <Avatar alt="Remy Sharp" src="https://i.pravatar.cc/300" /> */}
                                 </IconButton>
                             </Box>
                         </Box>

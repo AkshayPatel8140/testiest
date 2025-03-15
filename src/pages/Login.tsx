@@ -15,6 +15,7 @@ import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import GoogleIcon from '@mui/icons-material/Google';
 import { useNavigate } from 'react-router-dom';
+import { Colors } from '../components/Colors';
 // import Card from '@mui/material/Card';
 // import ForgotPassword from './components/ForgotPassword';
 // import AppTheme from '../shared-theme/AppTheme';
@@ -64,8 +65,10 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export function LogIn(props: { disableCustomTheme?: boolean }) {
+    const [emailText, setEmailText] = React.useState('');
     const [emailError, setEmailError] = React.useState(false);
     const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
+    const [passwordText, setPasswordText] = React.useState('');
     const [passwordError, setPasswordError] = React.useState(false);
     const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
     const [open, setOpen] = React.useState(false);
@@ -76,24 +79,7 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
         setOpen(true);
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        if (emailError || passwordError) {
-            event.preventDefault();
-            return;
-        }
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
-
     const validateInputs = () => {
-        navigate('/dashboard');
 
         const email = document.getElementById('email') as HTMLInputElement;
         const password = document.getElementById('password') as HTMLInputElement;
@@ -102,7 +88,7 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
 
         if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
             setEmailError(true);
-            setEmailErrorMessage('Please enter a valid email address.');
+            setEmailErrorMessage('!! Please enter a valid email address !!');
             isValid = false;
         } else {
             setEmailError(false);
@@ -111,7 +97,7 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
 
         if (!password.value || password.value.length < 6) {
             setPasswordError(true);
-            setPasswordErrorMessage('Password must be at least 6 characters long.');
+            setPasswordErrorMessage('!! Password must be at least 6 characters long !!');
             isValid = false;
         } else {
             setPasswordError(false);
@@ -121,14 +107,19 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
         return isValid;
     };
 
+
+    const handleSubmit = () => {
+        console.log('test');
+        if (validateInputs()) {
+            navigate('/dashboard');
+        }
+    };
+
     return (
-        // <AppTheme {...props}>
         <>
             <CssBaseline enableColorScheme />
             <SignInContainer direction="column" justifyContent="space-between">
-                {/* <ColorModeSelect sx={{ position: 'fixed', top: '1rem', right: '1rem' }} /> */}
                 <Card variant="outlined">
-                    {/* <SitemarkIcon /> */}
                     <Typography
                         component="h1"
                         variant="h4"
@@ -138,9 +129,6 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                         Sign in
                     </Typography>
                     <Box
-                        component="form"
-                        onSubmit={handleSubmit}
-                        noValidate
                         sx={{
                             display: 'flex',
                             flexDirection: 'column',
@@ -151,8 +139,10 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                         <FormControl>
                             <FormLabel htmlFor="email">UserName</FormLabel>
                             <TextField
+                                value={emailText}
                                 error={emailError}
                                 helperText={emailErrorMessage}
+                                onChange={(e) => setEmailText(e.target.value)}
                                 id="email"
                                 type="email"
                                 name="email"
@@ -169,8 +159,10 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                         <FormControl>
                             <FormLabel htmlFor="password">Password</FormLabel>
                             <TextField
+                                value={passwordText}
                                 error={passwordError}
                                 helperText={passwordErrorMessage}
+                                onChange={(e) => { setPasswordText(e.target.value) }}
                                 name="password"
                                 placeholder="••••••"
                                 type="password"
@@ -189,8 +181,8 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                             fullWidth
                             variant="contained"
                             size="large"
-                            sx={{ backgroundColor: '#0A4EB2' }}
-                            onClick={validateInputs}
+                            sx={{ backgroundColor: Colors.defaultBlue }}
+                            onClick={handleSubmit}
                         >
                             Sign in
                         </Button>
@@ -219,6 +211,5 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                 </Card>
             </SignInContainer>
         </>
-        // {/* </AppTheme> */ }
     );
 }

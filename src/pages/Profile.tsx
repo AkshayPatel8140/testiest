@@ -63,7 +63,7 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
 
   const [genderText, setGenderText] = React.useState('male');
 
-  const [firstNameText, setFirstNameText] = React.useState('Ahemad');
+  const [firstNameText, setFirstNameText] = React.useState('Ahmed');
   const [firstNameError, setFirstNameError] = React.useState(false);
   const [firstNameErrorMessage, setFirstNameErrorMessage] = React.useState("");
 

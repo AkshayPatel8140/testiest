@@ -144,19 +144,19 @@ export const course2 = [
     {
         id: 2,
         name: 'Introduction to Artificial Intelligence',
-        duration: '6 Month',
+        duration: '2 Month',
         description: 'This course provides a comprehensive introduction to artificial intelligence (AI), covering its history, fundamental concepts, applications, risks, and mitigation strategies. It offers insights into AI components and technologies, development processes, and ethical considerations, preparing students to understand the evolving world of AI.'
     },
     {
         id: 3,
         name: 'Introduction to Algorithms',
-        duration: '6 Month',
+        duration: '4 Month',
         description: 'Fundamental concepts in algorithm design and analysis, including sorting, searching, and graph algorithms.'
     },
     {
         id: 4,
         name: 'Introduction to Machine Learning',
-        duration: '6 Month',
+        duration: '3 Month',
         description: 'An overview of machine learning techniques and applications, focusing on supervised and unsupervised learning.'
     },
     {
@@ -174,13 +174,13 @@ export const course2 = [
     {
         id: 5,
         name: 'Introduction to Blockchain',
-        duration: '6 Month',
+        duration: '3 Month',
         description: 'Explores the fundamentals of blockchain technology, its architecture, and potential applications across various industries.'
     },
     {
         id: 11,
         name: 'Introduction to Programming Lab',
-        duration: '6 Month',
+        duration: '1 Month',
         description: 'This course is designed to be taken concurrently with the CS250 Introduction to Programming course. It is aimed at students new to the Python language who may or may not have experience with other programming languages. Students will learn (a) how Python works and its place in the world of programming languages, (b) to work with and manipulate strings, (c) to perform math operations, (d) to work with Python sequences, (e) to collect user input and output results, (f) flow control processing, (g) to write to, and read from files, (h) to write functions, and (i) to handle exceptions.'
     },
 ]
