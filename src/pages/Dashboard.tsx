@@ -14,6 +14,7 @@ import {
     Tabs,
     TextField,
     Typography,
+    CircularProgress,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CheckIcon from '@mui/icons-material/Check';
@@ -118,9 +119,13 @@ export const DashboardContent = () => {
     const [skillList, setSkillList] = useState<string[]>(['Soft', 'Soft']);
     const [interestedSkillText, setInterestedSkillText] = useState<string>("");
     const [interestedSkill, setInterestedSkillList] = useState<string[]>(['Soft', 'Soft']);
+    const [loading, setLoading] = useState<boolean>(true);
 
 
     useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000);
         //Runs on the first render
         //And any time any dependency value changes
     }, [skillList, interestedSkill]);
@@ -163,8 +168,14 @@ export const DashboardContent = () => {
             timeLimit: timeLimit
         }
         console.log('data', data)
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+
+        }, 2000);
     }
 
+    console.log('loading', loading)
     return (
         <div>
             <Grid container spacing={2}>
@@ -307,7 +318,20 @@ export const DashboardContent = () => {
                         <Box>
                             <TabPanel value={tabValue} index={0}>
                                 <Card variant="outlined">
-                                    <CourseTable />
+                                    {loading ?
+                                        <Card
+                                            variant="outlined"
+                                            sx={{
+                                                height: "calc(100vh - 200px)", // Ensures vertical scroll if content overflows
+                                                overflowY: "auto", // Enables vertical scrolling
+                                                display: "flex", // Enables flexbox for centering
+                                                alignItems: "center", // Centers vertically
+                                                justifyContent: "center", // Centers horizontally
+                                            }}
+                                        >
+                                            <CircularProgress disableShrink />
+                                        </Card>
+                                        : <CourseTable />}
                                 </Card>
                             </TabPanel>
                             <TabPanel value={tabValue} index={1}>

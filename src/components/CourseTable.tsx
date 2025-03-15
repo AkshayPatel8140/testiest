@@ -7,6 +7,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
+import courses from '../data/course';
 
 
 const style = {
@@ -49,33 +50,6 @@ function createData(name: string, duration: string) {
     return { name, duration };
 }
 
-
-const rows = [
-    createData('Quantum Computing', '6 Month'),
-    createData('Introduction to Artificial Intelligence', '6 Month'),
-    createData('Introduction to Algorithms', '6 Month'),
-    createData('Introduction to Machine Learning', '6 Month'),
-    createData('Introduction to Blockchain', '6 Month'),
-    createData('Machine Learning and AI', '6 Month'),
-    createData('Advance Web Technology', '6 Month'),
-    createData('Prompt Engineering', '6 Month'),
-    createData('Cloud Computing', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-    createData('Advance Python Application Programming', '6 Month'),
-];
-
-
 export default function CourseTable() {
 
     const [isModalOpen, setIsModalOpen] = React.useState(false)
@@ -106,7 +80,7 @@ export default function CourseTable() {
                             <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
                                 {selectedCourse?.name}
                             </Typography><Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-                                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                                {selectedCourse.description}
                             </Typography>
                         </>
                     }
@@ -123,7 +97,7 @@ export default function CourseTable() {
             >
                 <Table sx={{ minWidth: 700 }}>
                     <TableBody>
-                        {rows.map((row, index) => (
+                        {courses.map((row, index) => (
                             <StyledTableRow key={index}>
                                 <StyledTableCell>
                                     {index + 1}. {row.name}

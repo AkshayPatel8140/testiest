@@ -1,39 +1,6 @@
 import { Avatar, Box, List, ListItem, ListItemAvatar, styled, Typography } from '@mui/material';
 import * as React from 'react';
-
-// Sample university data (update with actual URLs)
-const universities = [
-  {
-    id: 1,
-    title: "Harvard University",
-    url: "https://www.harvard.edu/",
-    image: "https://via.placeholder.com/60"
-  },
-  {
-    id: 2,
-    title: "Stanford University",
-    url: "https://www.stanford.edu/",
-    image: "https://via.placeholder.com/60"
-  },
-  {
-    id: 3,
-    title: "MIT",
-    url: "https://web.mit.edu/",
-    image: "https://via.placeholder.com/60"
-  },
-  {
-    id: 4,
-    title: "University of Oxford",
-    url: "https://www.ox.ac.uk/",
-    image: "https://via.placeholder.com/60"
-  },
-  {
-    id: 5,
-    title: "University of Cambridge",
-    url: "https://www.cam.ac.uk/",
-    image: "https://via.placeholder.com/60"
-  }
-];
+import universities from '../data/universities';
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
   '&:nth-of-type(even)': {

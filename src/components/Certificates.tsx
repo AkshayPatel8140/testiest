@@ -20,6 +20,13 @@ const avatarStyle = (index) => {
   return index % 2 === 0 ? `radial-gradient(circle,${c1} 0%, ${c2} 100%)` : `radial-gradient(circle, ${c2} 0%, ${c1} 100%)`
 }
 
+const HandleOnclickCert = (data: any) => {
+  const win = window.open(data.link, '_blank');
+  if (win != null) {
+    win.focus();
+  }
+}
+
 export default function Certificates() {
   return (
     <List sx={{ width: '100%', bgcolor: 'background.paper', py: 0, pb: 0 }}>
@@ -33,12 +40,20 @@ export default function Certificates() {
             display: 'flex',
             alignItems: 'center'
           }}
+          onClick={() => HandleOnclickCert(cert)}
         >
           <Box flex={1}>
             <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
               {cert.id}. {cert.title}
             </Typography>
-            <Typography variant="body2">
+            <Typography variant="body2"
+              sx={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitLineClamp: "2",
+                WebkitBoxOrient: "vertical",
+              }}>
               {cert.description}
             </Typography>
           </Box>
