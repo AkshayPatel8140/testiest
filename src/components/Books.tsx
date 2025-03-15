@@ -2,7 +2,7 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { Box, Link, Container, Grid2 as Grid } from '@mui/material';
-import books from '../data/books';
+import books from '../data/books.tsx';
 
 const handleBookClick = (url) => {
     const win = window.open(url, '_blank');

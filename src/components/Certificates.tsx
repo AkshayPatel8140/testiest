@@ -1,6 +1,6 @@
 import { Avatar, Box, List, ListItem, ListItemAvatar, styled, Typography } from '@mui/material';
 import * as React from 'react';
-import certificates from '../data/certificates';
+import certificates from '../data/certificates.tsx';
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
   '&:nth-of-type(even)': {

@@ -1,6 +1,6 @@
 import { Avatar, Box, List, ListItem, ListItemAvatar, styled, Typography } from '@mui/material';
 import * as React from 'react';
-import universities from '../data/universities';
+import universities from '../data/universities.tsx';
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
   '&:nth-of-type(even)': {

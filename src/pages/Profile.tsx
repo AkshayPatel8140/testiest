@@ -14,6 +14,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Colors } from "../components/Colors";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -59,20 +60,43 @@ const ProfileContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export function Profile(props: { disableCustomTheme?: boolean }) {
+
+  const [genderText, setGenderText] = React.useState('male');
+
+  const [firstNameText, setFirstNameText] = React.useState('Ahemad');
+  const [firstNameError, setFirstNameError] = React.useState(false);
+  const [firstNameErrorMessage, setFirstNameErrorMessage] = React.useState("");
+
+  const [lastNameText, setLastNameText] = React.useState('Banafa');
+  const [lastNameError, setLastNameError] = React.useState(false);
+  const [lastNameErrorMessage, setLastNameErrorMessage] = React.useState("");
+
+  const [userNameText, setUserNameText] = React.useState('AhemadBanafaSFBU');
+  const [userNameError, setUserNameError] = React.useState(false);
+  const [userNameErrorMessage, setUserNameErrorMessage] = React.useState("");
+
+  const [emailText, setEmailText] = React.useState('ahmed.banafa@sfbu.edu');
   const [emailError, setEmailError] = React.useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
+
+  const [phoneNumberText, setPhoneNumberText] = React.useState('1(408)-607-4456');
+  const [phoneNumberError, setPhoneNumberError] = React.useState(false);
+  const [phoneNumberErrorMessage, setPhoneNumberErrorMessage] = React.useState("");
+
+  const [oldPasswordText, setOldPasswordText] = React.useState('');
+  const [oldPasswordError, setOldPasswordError] = React.useState(false);
+  const [oldPasswordErrorMessage, setOldPasswordErrorMessage] = React.useState("");
+
+  const [passwordText, setPasswordText] = React.useState('');
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
+
+  const [confirmPasswordText, setConfirmPasswordText] = React.useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = React.useState(false);
+  const [confirmPasswordErrorMessage, setConfirmPasswordErrorMessage] = React.useState("");
+
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate()
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     if (emailError || passwordError) {
@@ -92,30 +116,89 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
 
     let isValid = true;
 
-    if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
+    if (!firstNameText) {
+      setFirstNameError(true);
+      setFirstNameErrorMessage("!! First Name can not be empty !!");
+      isValid = false;
+    } else {
+      setFirstNameError(false);
+      setFirstNameErrorMessage("");
+    }
+
+    if (!lastNameText) {
+      setLastNameError(true);
+      setLastNameErrorMessage("!! Last Name can not be empty !!");
+      isValid = false;
+    } else {
+      setLastNameError(false);
+      setLastNameErrorMessage("");
+    }
+
+    if (!userNameText) {
+      setUserNameError(true);
+      setUserNameErrorMessage("!! User Name can not be empty !!");
+      isValid = false;
+    } else {
+      setUserNameError(false);
+      setUserNameErrorMessage("");
+    }
+
+    if (!emailText || !/\S+@\S+\.\S+/.test(emailText)) {
       setEmailError(true);
-      setEmailErrorMessage("Please enter a valid email address.");
+      setEmailErrorMessage("!! Please enter a valid email address !!");
       isValid = false;
     } else {
       setEmailError(false);
       setEmailErrorMessage("");
     }
 
-    if (!password.value || password.value.length < 6) {
+    if (!phoneNumberText || phoneNumberText.length < 10) {
+      setPhoneNumberError(true);
+      setPhoneNumberErrorMessage("!! Please enter a valid Phone address !!");
+      isValid = false;
+    } else {
+      setPhoneNumberError(false);
+      setPhoneNumberErrorMessage("");
+    }
+
+    if (!oldPasswordText || oldPasswordText.length < 6) {
+      setOldPasswordError(true);
+      setOldPasswordErrorMessage("!! Please enter a valid old Password !!");
+      isValid = false;
+    } else {
+      setOldPasswordError(false);
+      setOldPasswordErrorMessage("");
+    }
+
+    if (!passwordText || passwordText.length < 6) {
       setPasswordError(true);
-      setPasswordErrorMessage("Password must be at least 6 characters long.");
+      setPasswordErrorMessage("!! Password must be at least 6 characters long  !!");
       isValid = false;
     } else {
       setPasswordError(false);
       setPasswordErrorMessage("");
     }
 
+    if (!confirmPasswordText || confirmPasswordText !== passwordText) {
+      setConfirmPasswordError(true);
+      setConfirmPasswordErrorMessage("!! Confirm Password must match with the Password  !!");
+      isValid = false;
+    } else {
+      setConfirmPasswordError(false);
+      setConfirmPasswordErrorMessage("");
+    }
+
     return isValid;
   };
 
+  const sectionHeader = (title: string) => {
+    return <Typography sx={{ fontSize: 'clamp(1rem, 1vw, 1.15rem)', mt: 2, mb: -1, color: Colors.defaultBlue, fontWeight: 'bold' }}>{title}</Typography>
+  }
+
   const handleSave = () => {
     // TODO validateInputs
-    navigate('/dashboard')
+    validateInputs()
+    // navigate('/dashboard')
   }
   const handleCancel = () => {
     navigate('/dashboard')
@@ -125,6 +208,7 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
       <CssBaseline enableColorScheme />
       <ProfileContainer direction="column" justifyContent="space-between" sx={{}}>
         <Card variant="outlined">
+          {sectionHeader('Personal Details')}
           <Box
             component="form"
             onSubmit={handleSubmit}
@@ -143,11 +227,13 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
               gap={8}
               justifyContent={"center"}
             >
-              <FormControl>
+              <FormControl sx={{ width: "100%", minWidth: "300px" }}>
                 <FormLabel htmlFor="firstname">First Name</FormLabel>
                 <TextField
-                  error={emailError}
-                  helperText={emailErrorMessage}
+                  value={firstNameText}
+                  error={firstNameError}
+                  helperText={firstNameErrorMessage}
+                  onChange={(e) => { setFirstNameText(e.target.value) }}
                   id="firstname"
                   type='text'
                   name="firstname"
@@ -157,15 +243,17 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={emailError ? "error" : "primary"}
+                  color={firstNameError ? "error" : "primary"}
                 />
               </FormControl>
 
-              <FormControl>
+              <FormControl sx={{ width: "100%", minWidth: "300px" }}>
                 <FormLabel htmlFor="email">Last Name</FormLabel>
                 <TextField
-                  error={emailError}
-                  helperText={emailErrorMessage}
+                  value={lastNameText}
+                  error={lastNameError}
+                  helperText={lastNameErrorMessage}
+                  onChange={(e) => { setLastNameText(e.target.value) }}
                   id="lastname"
                   type="text"
                   name="lastname"
@@ -175,26 +263,28 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={emailError ? "error" : "primary"}
+                  color={lastNameError ? "error" : "primary"}
                 />
               </FormControl>
 
-              <FormControl>
+              <FormControl sx={{ width: "100%", minWidth: "300px" }}>
                 <FormLabel htmlFor="email">User Name</FormLabel>
                 <TextField
-                  error={emailError}
-                  helperText={emailErrorMessage}
+                  value={userNameText}
+                  error={userNameError}
+                  helperText={userNameErrorMessage}
                   id="username"
                   type="text"
                   name="username"
-                  placeholder="your@email.com"
+                  placeholder="username"
+                  onChange={(e) => { setUserNameText(e.target.value) }}
                   // autoComplete="email"
                   autoFocus
                   required
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={emailError ? "error" : "primary"}
+                  color={userNameError ? "error" : "primary"}
                 />
               </FormControl>
             </Box>
@@ -205,11 +295,13 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
               gap={8}
               justifyContent={"center"}
             >
-              <FormControl>
+              <FormControl sx={{ width: "100%", minWidth: "300px" }}>
                 <FormLabel htmlFor="firstname">Email</FormLabel>
                 <TextField
+                  value={emailText}
                   error={emailError}
                   helperText={emailErrorMessage}
+                  onChange={(e) => { setEmailText(e.target.value) }}
                   id="email"
                   type="email"
                   name="email"
@@ -223,25 +315,28 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
                 />
               </FormControl>
 
-              <FormControl>
+              <FormControl sx={{ width: "100%", minWidth: "300px" }}>
                 <FormLabel htmlFor="firstname">Phone number</FormLabel>
                 <TextField
-                  error={emailError}
-                  helperText={emailErrorMessage}
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com"
+                  value={phoneNumberText}
+                  error={phoneNumberError}
+                  helperText={phoneNumberErrorMessage}
+                  onChange={(e) => { setPhoneNumberText(e.target.value) }}
+                  id="phoneNumber"
+                  type="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="1-XXX-XXX-XXXX"
                   autoFocus
                   required
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={emailError ? "error" : "primary"}
+                  color={phoneNumberError ? "error" : "primary"}
                 />
               </FormControl>
 
-              <FormControl>
+              <FormControl sx={{ width: "100%", minWidth: "300px" }}>
+                {/* <FormControl sx={{ marginX: 0.5 }}> */}
                 <FormLabel id="demo-row-radio-buttons-group-label">
                   Gender
                 </FormLabel>
@@ -249,6 +344,8 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
                   name="row-radio-buttons-group"
+                  defaultValue={genderText}
+                  onSelect={(e) => { setGenderText((e.target as HTMLInputElement).value) }}
                 >
                   <FormControlLabel
                     value="female"
@@ -263,6 +360,7 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
                 </RadioGroup>
               </FormControl>
             </Box>
+            {sectionHeader('Change Password')}
             <Box
               display={"flex"}
               flexDirection={"row"}
@@ -270,15 +368,37 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
               gap={8}
               justifyContent={"center"}
             >
-              <FormControl>
-                <FormLabel htmlFor="password">Password</FormLabel>
+              <FormControl sx={{ width: "100%", minWidth: "300px" }}>
+                <FormLabel htmlFor="OldPassword">Old Password</FormLabel>
                 <TextField
+                  value={oldPasswordText}
+                  error={oldPasswordError}
+                  helperText={oldPasswordErrorMessage}
+                  name="oldPassword"
+                  placeholder="••••••••"
+                  type="password"
+                  onChange={(e) => setOldPasswordText(e.target.value)}
+                  id="oldpassword"
+                  // autoComplete="current-password"
+                  autoFocus
+                  required
+                  fullWidth
+                  size="small"
+                  variant="outlined"
+                  color={oldPasswordError ? "error" : "primary"}
+                />
+              </FormControl>
+              <FormControl sx={{ width: "100%", minWidth: "300px" }}>
+                <FormLabel htmlFor="password">New Password</FormLabel>
+                <TextField
+                  value={passwordText}
                   error={passwordError}
                   helperText={passwordErrorMessage}
-                  name="password"
+                  name="newPassword"
                   placeholder="••••••"
                   type="password"
-                  id="password"
+                  onChange={(e) => setPasswordText(e.target.value)}
+                  id="newPassword"
                   autoComplete="current-password"
                   autoFocus
                   required
@@ -288,26 +408,28 @@ export function Profile(props: { disableCustomTheme?: boolean }) {
                   color={passwordError ? "error" : "primary"}
                 />
               </FormControl>
-              <FormControl>
+              <FormControl sx={{ width: "100%", minWidth: "300px" }}>
                 <FormLabel htmlFor="password">Confirm Password</FormLabel>
                 <TextField
-                  error={passwordError}
-                  helperText={passwordErrorMessage}
+                  value={confirmPasswordText}
+                  error={confirmPasswordError}
+                  helperText={confirmPasswordErrorMessage}
+                  onChange={(e) => { setConfirmPasswordText(e.target.value) }}
                   name="CoPassword"
                   placeholder="••••••"
                   type="password"
-                  id="password"
+                  id="CoPassword"
                   autoComplete="current-password"
                   autoFocus
                   required
                   fullWidth
                   size="small"
                   variant="outlined"
-                  color={passwordError ? "error" : "primary"}
+                  color={confirmPasswordError ? "error" : "primary"}
                 />
               </FormControl>
             </Box>
-            <Box justifyContent={'center'} display={'flex'} width={'100%'} gap={4}>
+            <Box justifyContent={'center'} display={'flex'} width={'100%'} gap={4} mt={10}>
               <Button
                 type="submit"
                 variant="contained"
