@@ -242,7 +242,6 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   type="text"
                   name="lastname"
                   placeholder="lastname"
-                  autoFocus
                   required
                   fullWidth
                   size="small"
@@ -263,7 +262,6 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   name="username"
                   // placeholder="your@email.com"
                   // autoComplete="email"
-                  autoFocus
                   required
                   fullWidth
                   size="small"
@@ -290,7 +288,6 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   type="email"
                   name="email"
                   placeholder="email"
-                  autoFocus
                   required
                   fullWidth
                   size="small"
@@ -310,7 +307,6 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   type="phoneNumber"
                   name="phoneNumber"
                   placeholder="1(XXX)-XXX-XXXX"
-                  autoFocus
                   required
                   fullWidth
                   size="small"
@@ -362,7 +358,6 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   type="password"
                   id="password"
                   autoComplete="current-password"
-                  autoFocus
                   required
                   fullWidth
                   size="small"
@@ -382,7 +377,6 @@ export function SignUp(props: { disableCustomTheme?: boolean }) {
                   type="password"
                   id="password"
                   autoComplete="current-password"
-                  autoFocus
                   required
                   fullWidth
                   size="small"

@@ -11,7 +11,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Colors } from '../components/Colors';
+import { Colors } from '../components/Colors.tsx';
 
 const Card = styled(MuiCard)(({ theme }) => ({
     display: 'flex',
@@ -160,8 +160,8 @@ export function LogIn(props: { disableCustomTheme?: boolean }) {
                                 placeholder="••••••"
                                 type="password"
                                 id="password"
-                                autoComplete="current-password"
-                                autoFocus
+                                // autoComplete="current-password"
+                                // autoFocus
                                 required
                                 fullWidth
                                 size="small"

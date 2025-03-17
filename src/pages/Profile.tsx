@@ -3,18 +3,17 @@ import Button from "@mui/material/Button";
 import MuiCard from "@mui/material/Card";
 import CssBaseline from "@mui/material/CssBaseline";
 import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
-import Link from "@mui/material/Link";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Colors } from "../components/Colors";
+import { useNavigate } from "react-router-dom";
+import { Colors } from "../components/Colors.tsx";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",

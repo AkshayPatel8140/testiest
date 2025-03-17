@@ -1241,6 +1241,8 @@ export const books = [
     { 'id': 1240, 'name': 'Effective AWK Programming, 3rd Edition', 'img': 'https://www.freetechbooks.com/uploads/1461281779-41Xm3-eaQVL._SX381_BO1,204,203,200_.jpg', 'link': 'https://www.freetechbooks.com/effective-awk-programming-3rd-edition-t11.html' },
     { 'id': 1241, 'name': "Gimp User's Manual", 'img': 'https://www.freetechbooks.com/uploads/1468461480-9781434103314_p0_v1_s260x420.JPG', 'link': 'https://www.freetechbooks.com/gimp-user-s-manual-t10.html' },
     { 'id': 1242, 'name': "Cygwin User's Guide", 'img': 'https://www.freetechbooks.com/uploads/new-dark-grey-background_cr.jpg', 'link': 'https://www.freetechbooks.com/cygwin-user-s-guide-t9.html' },
+    { 'id': 1243, 'name': 'Introduction to Artificial Intelligence (AI)', 'img': 'https://m.media-amazon.com/images/I/81dCenHr2DL._AC_UY436_FMwebp_QL65_.jpg', 'link': 'https://m.media-amazon.com/images/I/81dCenHr2DL._AC_UY436_FMwebp_QL65_.jpg' },
+    { 'id': 1244, 'name': 'Introduction to Quantum Computing', 'img': 'https://m.media-amazon.com/images/I/41kHJkFc6qL._SY445_SX342_.jpg', 'link': 'https://a.co/d/fZwqEVu' },
 ]
 
 export const books2 = [
@@ -1248,7 +1250,9 @@ export const books2 = [
     { 'id': 290, 'name': 'Ruby on Rails Tutorial: Learn Web Development with Rails', 'img': 'https://www.freetechbooks.com/uploads/1469579588-ruby_on_rails.jpg', 'link': 'https://www.freetechbooks.com/ruby-on-rails-tutorial-learn-web-development-with-rails-t1085.html' },
     { 'id': 8, 'name': 'Isomorphism -- Mathematics of Programming', 'img': 'https://www.freetechbooks.com/uploads/1672562055-1646924278-unplugged-en-2.jpg', 'link': 'https://www.freetechbooks.com/isomorphism-mathematics-of-programming-t1381.html' },
     { 'id': 17, 'name': 'Notes on Data Structures and Programming Techniques', 'img': 'https://www.freetechbooks.com/uploads/1672562610-1614699379-notes_dsa.jpg', 'link': 'https://www.freetechbooks.com/notes-on-data-structures-and-programming-techniques-t1372.html' },
+    { 'id': 1243, 'name': 'Introduction to Artificial Intelligence (AI)', 'img': 'https://m.media-amazon.com/images/I/81dCenHr2DL._AC_UY436_FMwebp_QL65_.jpg', 'link': 'https://m.media-amazon.com/images/I/81dCenHr2DL._AC_UY436_FMwebp_QL65_.jpg' },
     { 'id': 24, 'name': 'Introduction to Scientific Programming with Python', 'img': 'https://www.freetechbooks.com/uploads/1672562991-1614259634-2020_Book_IntroductionToScientificProgra.jpg', 'link': 'https://www.freetechbooks.com/introduction-to-scientific-programming-with-python-t1365.html' },
+    { 'id': 1244, 'name': 'Introduction to Quantum Computing', 'img': 'https://m.media-amazon.com/images/I/41kHJkFc6qL._SY445_SX342_.jpg', 'link': 'https://a.co/d/fZwqEVu' },
     { 'id': 29, 'name': 'The Coder’s Apprentice - Learning Programming with Python 3', 'img': 'https://www.freetechbooks.com/uploads/1672563482-1613660184-pythonbook.jpg', 'link': 'https://www.freetechbooks.com/the-coders-apprentice-learning-programming-with-python-3-t1359.html' },
     { 'id': 50, 'name': 'Programming in C', 'img': 'https://www.freetechbooks.com/uploads/new-dark-grey-background_cr.jpg', 'link': 'https://www.freetechbooks.com/programming-in-c-t1337.html' },
     { 'id': 81, 'name': 'Parallel Algorithms', 'img': 'https://www.freetechbooks.com/uploads/1491187643-parallel_algorithms.jpg', 'link': 'https://www.freetechbooks.com/parallel-algorithms-t1305.html' },
